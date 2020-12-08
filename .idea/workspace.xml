@@ -20,17 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20201208145237.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/MovieCrudController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Movie.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/MovieRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Genre.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Genre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/GenreCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/GenreCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/MovieCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/MovieCrudController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +165,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../symfonyOrderStore" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -190,7 +190,7 @@
       <workItem from="1607349871373" duration="1075000" />
       <workItem from="1607350963203" duration="225000" />
       <workItem from="1607351196141" duration="1590000" />
-      <workItem from="1607438459107" duration="1760000" />
+      <workItem from="1607438459107" duration="3123000" />
     </task>
     <servers />
   </component>

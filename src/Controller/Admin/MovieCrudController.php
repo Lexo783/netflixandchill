@@ -4,6 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\Movie;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class MovieCrudController extends AbstractCrudController
 {
@@ -12,14 +18,24 @@ class MovieCrudController extends AbstractCrudController
         return Movie::class;
     }
 
-    /*
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
             TextField::new('title'),
-            TextEditorField::new('description'),
+            TextEditorField::new('plot'),
+            ChoiceField::new('rated')
+                ->setChoices([
+                    'PEGI-3' => 3,
+                    'PEGI-7' => 7,
+                    'PEGI-12' => 12,
+                    'PEGI-16' => 16,
+                    'PEGI-18' => 18,
+                ]),
+            DateField::new('released'),
+            //CollectionField::new('genres'),
+            //ImageField::new('picture'),
+            TextField::new('type'),
         ];
     }
-    */
 }
