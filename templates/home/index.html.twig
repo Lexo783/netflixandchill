@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
-
+{% block title %}Hello VideoController!{% endblock %}
+{% block stylesheets %}
+    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+{% endblock %}
 {% block body %}
-    {% for movie in movies %}
-        {{ movie.title }}
-        {{ movie.plot }}
-    {% endfor %}
-
+    <video
+            id="vid1"
+            class="video-js vjs-default-skin"
+            controls
+            autoplay
+            width="640" height="264"
+            data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=WQyPzyNyhSg"}] }'
+    >
+    </video>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://vjs.zencdn.net/7.10.2/video.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
 {% endblock %}
