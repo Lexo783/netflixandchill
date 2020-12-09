@@ -71,9 +71,15 @@ class User implements UserInterface
      */
     private $addresses;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Profil::class, mappedBy="user")
+     */
+    private $profils;
+
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
+        $this->profils = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -238,6 +244,36 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($address->getUser() === $this) {
                 $address->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Profil[]
+     */
+    public function getProfils(): Collection
+    {
+        return $this->profils;
+    }
+
+    public function addProfil(Profil $profil): self
+    {
+        if (!$this->profils->contains($profil)) {
+            $this->profils[] = $profil;
+            $profil->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProfil(Profil $profil): self
+    {
+        if ($this->profils->removeElement($profil)) {
+            // set the owning side to null (unless already changed)
+            if ($profil->getUser() === $this) {
+                $profil->setUser(null);
             }
         }
 
