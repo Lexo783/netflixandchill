@@ -1,0 +1,14 @@
+.copyright{
+    color: grey;
+}
+
+.footer{
+    background-color: #141414;
+    position: absolute;
+    bottom: 0;
+    width: -webkit-fill-available;
+    text-align: center;
+}
+.reseaux{
+    margin-left: 18px;
+}

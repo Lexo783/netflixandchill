@@ -3,9 +3,14 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
+    {% include 'header/header.html.twig' %}
+    <div class="imgAccueil">
+        <img class="imgAccueil" src="assets/img/DSK.png">
+    </div>
     {% for movie in movies %}
         {{ movie.title }}
         {{ movie.plot }}
         {{ movie.rel }}
     {% endfor %}
+    {% include 'footer/footer.html.twig' %}
 {% endblock %}
