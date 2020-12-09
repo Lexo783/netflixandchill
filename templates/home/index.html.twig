@@ -1,11 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
     {% include 'header/header.html.twig' %}
     <div class="imgAccueil">
-        <img class="imgAccueil" src="assets/img/DSK.png">
+        <img class="imgAccueil" src="assets/img/fondTeteAffiche.png">
+    </div>
+    <div class="imgTitreAccueil">
+        <img src="assets/img/titreTeteAffiche.png">
+        <p class="movieDescription">Privés de leurs pensions de retraite, trois amis de toujours décident de braquer une banque. Mais il leur faudra garder une longueur d'avance sur le FBI.</p>
+    </div>
+    <div class="buttonAccueil">
+        <a>
+            <button class="buttonPlay">
+                <img class="imgPlay" src="assets/img/play.svg">
+                Lecture
+            </button>
+        </a>
+        <a>
+            <button class="buttonInfo">
+                <img class="imgInfo" src="assets/img/information.png">
+                Plus d'infos
+            </button>
+        </a>
+    </div>
+    <div>
+        
     </div>
     {% for movie in movies %}
         {{ movie.title }}
