@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 
 class MovieCrudController extends AbstractCrudController
 {
@@ -21,6 +22,7 @@ class MovieCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            UrlField::new('movie'),
             TextField::new('title'),
             TextEditorField::new('plot'),
             ChoiceField::new('rated')

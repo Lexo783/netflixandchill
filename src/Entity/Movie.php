@@ -54,6 +54,11 @@ class Movie
      */
     private $type;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $movie;
+
     public function __construct()
     {
         $this->genres = new ArrayCollection();
@@ -156,6 +161,18 @@ class Movie
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getMovie(): ?string
+    {
+        return $this->movie;
+    }
+
+    public function setMovie(string $movie): self
+    {
+        $this->movie = $movie;
 
         return $this;
     }
