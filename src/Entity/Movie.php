@@ -56,9 +56,15 @@ class Movie
      */
     private $type;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Favorite::class, mappedBy="movie")
+     */
+    private $favorites;
+
     public function __construct()
     {
         $this->genres = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -158,6 +164,36 @@ class Movie
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favorite[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Favorite $favorite): self
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites[] = $favorite;
+            $favorite->setMovie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Favorite $favorite): self
+    {
+        if ($this->favorites->removeElement($favorite)) {
+            // set the owning side to null (unless already changed)
+            if ($favorite->getMovie() === $this) {
+                $favorite->setMovie(null);
+            }
+        }
 
         return $this;
     }
