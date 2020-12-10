@@ -1,31 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello VideoController!{% endblock %}
-{% block stylesheets %}
-    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
-{% endblock %}
-{% block body %}
-    <div id="app">
-        <div>
-            ${ message }
-        </div>
-    </div>
-{% endblock %}
-{% block javascripts %}
-    <script src="https://vjs.zencdn.net/7.10.2/video.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+{% block title %}Accueil{% endblock %}
 
-    <script>
-        const app = new Vue({
-            el:'#app',
-            delimiters: [
-                "${","}",
-            ],
-            data(){
-                return {
-                    message: "Hello",
-                }
-            }
-        });
-    </script>
+{% block body %}
+    {% include 'header/header.html.twig' %}
+    <div class="imgAccueil">
+        <img class="imgAccueil" src="assets/img/fondTeteAffiche.png">
+    </div>
+    <div class="imgTitreAccueil">
+        <img src="assets/img/titreTeteAffiche.png">
+        <p class="movieDescription">Privés de leurs pensions de retraite, trois amis de toujours décident de braquer une banque. Mais il leur faudra garder une longueur d'avance sur le FBI.</p>
+    </div>
+    <div class="buttonAccueil">
+        <a>
+            <button class="buttonPlay">
+                <img class="imgPlay" src="assets/img/play.svg">
+                Lecture
+            </button>
+        </a>
+        <a>
+            <button class="buttonInfo">
+                <img class="imgInfo" src="assets/img/information.png">
+                Plus d'infos
+            </button>
+        </a>
+    </div>
+    <div>
+        
+    </div>
+    {% for movie in movies %}
+        {{ movie.title }}
+        {{ movie.plot }}
+        {{ movie.rel }}
+    {% endfor %}
+    {% include 'footer/footer.html.twig' %}
 {% endblock %}
