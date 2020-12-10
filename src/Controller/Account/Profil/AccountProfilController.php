@@ -23,7 +23,7 @@ class AccountProfilController extends AbstractController
     }
 
     #[Route('/new', name: 'profil_new', methods: ['GET', 'POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, UploadFileService $uploadFileService): Response
     {
         $profil = new Profil();
         $form = $this->createForm(ProfilType::class, $profil);
@@ -31,9 +31,15 @@ class AccountProfilController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $avatar = $form->get('picture')->getData();
             $control = $form->get('control')->getData();
 
-            $profil->setControl($control != false ? 0 : 1);
+            if ($avatar) {
+                $avatarFileName = $uploadFileService->upload($avatar, "profil");
+                $profil->setPicture($avatarFileName);
+            }
+
+            $profil->setControl($control != false ? 1 : 0);
 
             $profil->setUser($this->getUser());
 
@@ -59,7 +65,7 @@ class AccountProfilController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'profil_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Profil $profil, UploadFileService $upload): Response
+    public function edit(Request $request, Profil $profil, UploadFileService $uploadFileService): Response
     {
         $form = $this->createForm(ProfilType::class, $profil);
         $form->handleRequest($request);
@@ -69,8 +75,12 @@ class AccountProfilController extends AbstractController
             $avatar = $form->get('picture')->getData();
             $control = $form->get('control')->getData();
 
-            $profil->setControl($control != false ? 0 : 1);
-            $profil->setPicture($avatar);
+            if ($avatar) {
+                $avatarFileName = $uploadFileService->upload($avatar, "profil");
+                $profil->setPicture($avatarFileName);
+            }
+
+            $profil->setControl($control != false ? 1 : 0);
 
             $this->getDoctrine()->getManager()->flush();
 
