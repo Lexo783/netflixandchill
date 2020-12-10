@@ -5,6 +5,7 @@ namespace App\Controller\Account\Profil;
 use App\Entity\Profil;
 use App\Form\ProfilType;
 use App\Repository\ProfilRepository;
+use App\Service\UploadFileService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,6 +31,10 @@ class AccountProfilController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $control = $form->get('control')->getData();
+
+            $profil->setControl($control != false ? 0 : 1);
+
             $profil->setUser($this->getUser());
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -54,12 +59,19 @@ class AccountProfilController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'profil_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Profil $profil): Response
+    public function edit(Request $request, Profil $profil, UploadFileService $upload): Response
     {
         $form = $this->createForm(ProfilType::class, $profil);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $avatar = $form->get('picture')->getData();
+            $control = $form->get('control')->getData();
+
+            $profil->setControl($control != false ? 0 : 1);
+            $profil->setPicture($avatar);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('profil_index');

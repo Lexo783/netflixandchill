@@ -3,37 +3,31 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    <h1>Profil index</h1>
+    <h1>Gestion des profils de {{ app.user.pseudo }}</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>Control</th>
-                <th>actions</th>
+                <th>Pseudo</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for profil in profils %}
             <tr>
-                <td>{{ profil.id }}</td>
                 <td>{{ profil.name }}</td>
-                <td>{{ profil.picture }}</td>
-                <td>{{ profil.control }}</td>
                 <td>
-                    <a href="{{ path('profil_show', {'id': profil.id}) }}">show</a>
-                    <a href="{{ path('profil_edit', {'id': profil.id}) }}">edit</a>
+                    <a href="{{ path('profil_show', {'id': profil.id}) }}">Voir le profil</a>
+                    <a href="{{ path('profil_edit', {'id': profil.id}) }}">Modifier le profil</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun profil n'a été créer</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('profil_new') }}">Create new</a>
+    <a href="{{ path('profil_new') }}">Nouveau profil</a>
 {% endblock %}
