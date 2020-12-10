@@ -6,6 +6,7 @@ use App\Entity\Profil;
 use App\Form\ProfilType;
 use App\Repository\ProfilRepository;
 use App\Service\UploadFileService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,16 +15,24 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/account/profil')]
 class AccountProfilController extends AbstractController
 {
+
+    private EntityManagerInterface $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
     #[Route('/', name: 'profil_index', methods: ['GET'])]
     public function index(ProfilRepository $profilRepository): Response
     {
         return $this->render('account/profil/index.html.twig', [
-            'profils' => $profilRepository->findAll(),
+            'profils' => $profilRepository->findBy(['user' => $this->getUser()]),
         ]);
     }
 
     #[Route('/new', name: 'profil_new', methods: ['GET', 'POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, UploadFileService $uploadFileService): Response
     {
         $profil = new Profil();
         $form = $this->createForm(ProfilType::class, $profil);
@@ -31,15 +40,20 @@ class AccountProfilController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $avatar = $form->get('picture')->getData();
             $control = $form->get('control')->getData();
 
-            $profil->setControl($control != false ? 0 : 1);
+            if ($avatar) {
+                $avatarFileName = $uploadFileService->upload($avatar, "profil");
+                $profil->setPicture($avatarFileName);
+            }
+
+            $profil->setControl($control != false ? 1 : 0);
 
             $profil->setUser($this->getUser());
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($profil);
-            $entityManager->flush();
+            $this->em->persist($profil);
+            $this->em->flush();
 
             return $this->redirectToRoute('profil_index');
         }
@@ -59,7 +73,7 @@ class AccountProfilController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'profil_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Profil $profil, UploadFileService $upload): Response
+    public function edit(Request $request, Profil $profil, UploadFileService $uploadFileService): Response
     {
         $form = $this->createForm(ProfilType::class, $profil);
         $form->handleRequest($request);
@@ -69,10 +83,14 @@ class AccountProfilController extends AbstractController
             $avatar = $form->get('picture')->getData();
             $control = $form->get('control')->getData();
 
-            $profil->setControl($control != false ? 0 : 1);
-            $profil->setPicture($avatar);
+            if ($avatar) {
+                $avatarFileName = $uploadFileService->upload($avatar, "profil");
+                $profil->setPicture($avatarFileName);
+            }
 
-            $this->getDoctrine()->getManager()->flush();
+            $profil->setControl($control != false ? 1 : 0);
+
+            $this->em->flush();
 
             return $this->redirectToRoute('profil_index');
         }
@@ -87,9 +105,8 @@ class AccountProfilController extends AbstractController
     public function delete(Request $request, Profil $profil): Response
     {
         if ($this->isCsrfTokenValid('delete'.$profil->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($profil);
-            $entityManager->flush();
+            $this->em->remove($profil);
+            $this->em->flush();
         }
 
         return $this->redirectToRoute('profil_index');
