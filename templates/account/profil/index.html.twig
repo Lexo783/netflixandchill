@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <h1>Gestion des profils de {{ app.user.pseudo }}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for profil in profils %}
+            <tr>
+                <td>{{ profil.name }}</td>
+                <td>
+                    <a href="{{ path('profil_show', {'id': profil.id}) }}">Voir le profil</a>
+                    <a href="{{ path('profil_edit', {'id': profil.id}) }}">Modifier le profil</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun profil n'a été créer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('profil_new') }}">Nouveau profil</a>
+{% endblock %}
