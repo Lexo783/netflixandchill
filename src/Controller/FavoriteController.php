@@ -27,8 +27,8 @@ class FavoriteController extends AbstractController
         ]);
     }
 
-    #[Route('/favorite/{action}/{filmId}', name: 'toggle_favorite')]
-    public function toggleFavorite($action, $filmId, FavoriteRepository $favoriteRepository)
+    #[Route('/favorite/{filmId}', name: 'toggle_favorite')]
+    public function toggleFavorite($filmId, FavoriteRepository $favoriteRepository)
     {
         $user = $this->getUser();
 
@@ -53,7 +53,7 @@ class FavoriteController extends AbstractController
         }
         else{
             $user->removeFavorite($favorite);
-            
+
             return false;
         }
     }
