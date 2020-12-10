@@ -30,7 +30,7 @@ class ProfilType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Please upload a valid Image document',
+                        'mimeTypesMessage' => 'Merci de renseigner uniquement une image de type jpeg ou png de maximum 1mo',
                     ])
                 ],
             ])

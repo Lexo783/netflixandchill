@@ -24,7 +24,7 @@ class UploadFileService
         $fileName = $safeFilename.'-'.uniqid().'.'.$file->guessExtension();
 
         try {
-            $file->move($this->getTargetDirectory() . $this->destinationType($type), $fileName);
+            $file->move($this->getTargetDirectory($type), $fileName);
         } catch (FileException $e) {
             return $e;
         }
@@ -32,17 +32,14 @@ class UploadFileService
         return $fileName;
     }
 
-    public function getTargetDirectory()
+    public function getTargetDirectory($type): string
     {
-        return $this->targetDirectory;
-    }
-
-    private function destinationType(String $type): string
-    {
-        return match ($type) {
+        $path = match ($type) {
             'profil' => "/profil/pictures",
             'movies' => "/movies",
             default => "",
         };
+
+        return $this->targetDirectory.$path;
     }
 }
