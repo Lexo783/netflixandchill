@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Movie;
+use App\Services\Search;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,29 @@ class MovieRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Movie::class);
+    }
+
+    /**
+     * @param Search $search
+     * faire une recherche de video par filtre
+     */
+    public function findWithSearch(Search $search)
+    {
+        $query = $this->createQueryBuilder('m')
+            ->select('g','m')
+            ->join('v.genre', 'g');
+
+        if(!empty($search->genre))
+        {
+            $query = $query->andWhere('g.id IN (:genre)')
+                ->setParameter('genre',$search->genre);
+        }
+        if(!empty($search->string))
+        {
+            $query = $query->andWhere('v.name LIKE :string')
+                ->setParameter('string',"%$search->string%");
+        }
+        return $query->getQuery()->getResult();
     }
 
     // /**

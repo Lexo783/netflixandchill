@@ -27,11 +27,11 @@ class MovieCrudController extends AbstractCrudController
             TextEditorField::new('plot'),
             ChoiceField::new('rated')
                 ->setChoices([
-                    'PEGI-3' => 3,
-                    'PEGI-7' => 7,
-                    'PEGI-12' => 12,
-                    'PEGI-16' => 16,
-                    'PEGI-18' => 18,
+                    'PEGI-3' => 'PEGI-3',
+                    'PEGI-7' => 'PEGI-7',
+                    'PEGI-12' => 'PEGI-12',
+                    'PEGI-16' => 'PEGI-16',
+                    'PEGI-18' => 'PEGI-18',
                 ]),
             DateField::new('released'),
             AssociationField::new('genres'),

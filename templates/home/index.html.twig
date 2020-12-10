@@ -5,19 +5,27 @@
     <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
 {% endblock %}
 {% block body %}
-    {% for movie in movies %}
-    <video
-            id="vid1"
-            class="video-js vjs-default-skin"
-            controls
-            autoplay
-            width="640" height="264"
-            data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ movie.movie }}"}] }'
-    >
-    </video>
-    {% endfor %}
+    <div id="app">
+        <div>
+            ${ message }
+        </div>
+    </div>
 {% endblock %}
 {% block javascripts %}
     <script src="https://vjs.zencdn.net/7.10.2/video.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+
+    <script>
+        const app = new Vue({
+            el:'#app',
+            delimiters: [
+                "${","}",
+            ],
+            data(){
+                return {
+                    message: "Hello",
+                }
+            }
+        });
+    </script>
 {% endblock %}
