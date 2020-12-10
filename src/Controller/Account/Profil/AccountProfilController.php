@@ -6,6 +6,7 @@ use App\Entity\Profil;
 use App\Form\ProfilType;
 use App\Repository\ProfilRepository;
 use App\Service\UploadFileService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,11 +15,19 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/account/profil')]
 class AccountProfilController extends AbstractController
 {
+
+    private EntityManagerInterface $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
     #[Route('/', name: 'profil_index', methods: ['GET'])]
     public function index(ProfilRepository $profilRepository): Response
     {
         return $this->render('account/profil/index.html.twig', [
-            'profils' => $profilRepository->findAll(),
+            'profils' => $profilRepository->findBy(['user' => $this->getUser()]),
         ]);
     }
 
@@ -43,9 +52,8 @@ class AccountProfilController extends AbstractController
 
             $profil->setUser($this->getUser());
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($profil);
-            $entityManager->flush();
+            $this->em->persist($profil);
+            $this->em->flush();
 
             return $this->redirectToRoute('profil_index');
         }
@@ -82,7 +90,7 @@ class AccountProfilController extends AbstractController
 
             $profil->setControl($control != false ? 1 : 0);
 
-            $this->getDoctrine()->getManager()->flush();
+            $this->em->flush();
 
             return $this->redirectToRoute('profil_index');
         }
@@ -97,9 +105,8 @@ class AccountProfilController extends AbstractController
     public function delete(Request $request, Profil $profil): Response
     {
         if ($this->isCsrfTokenValid('delete'.$profil->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($profil);
-            $entityManager->flush();
+            $this->em->remove($profil);
+            $this->em->flush();
         }
 
         return $this->redirectToRoute('profil_index');
