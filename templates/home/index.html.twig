@@ -25,71 +25,27 @@
             </button>
         </a>
     </div>
-    <div class="container">
 
-        <div id="carousel1">
-            <div class="item">
-                <div class="item__image">
-                    <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
-                </div>
-                <div class="item__body">
-                    <div class="item__title">
-                        test
+    {% for movie in movies %}
+        <div class="container">
+            <div id="carousel::">
+                <div class="item">
+                    <div class="item__image">
+                        <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
                     </div>
-                    <div class="item__description">
-                        test description
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="item__image">
-                    <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
-                </div>
-                <div class="item__body">
-                    <div class="item__title">
-                        test
-                    </div>
-                    <div class="item__description">
-                        test description
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="item__image">
-                    <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
-                </div>
-                <div class="item__body">
-                    <div class="item__title">
-                        test
-                    </div>
-                    <div class="item__description">
-                        test description
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="item__image">
-                    <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
-                </div>
-                <div class="item__body">
-                    <div class="item__title">
-                        test
-                    </div>
-                    <div class="item__description">
-                        test description
+                    <div class="item__body">
+                        <div class="item__title">
+                            {{ movie.title }}
+                        </div>
+                        <div class="item__description">
+                            {{ movie.plot }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    {% for movie in movies %}
-        {{ movie.title }}
-        {{ movie.plot }}
-        {{ movie.rel }}
     {% endfor %}
+
     {% include 'footer/footer.html.twig' %}
 {% endblock %}
