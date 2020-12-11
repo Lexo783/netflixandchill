@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Favorite;
-use App\Entity\User;
 use App\Repository\FavoriteRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
