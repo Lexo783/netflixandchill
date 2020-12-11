@@ -26,9 +26,10 @@
         </a>
     </div>
 
-    {% for movie in movies %}
-        <div class="container">
-            <div id="carousel::">
+    <div class="container">
+
+            <div id="carousel_0" >
+                {% for key, movie in movies %}
                 <div class="item">
                     <div class="item__image">
                         <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
@@ -38,14 +39,13 @@
                             {{ movie.title }}
                         </div>
                         <div class="item__description">
-                            {{ movie.plot }}
+                            {{ movie.plot | raw }}
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
     {% endfor %}
-
+            </div>
+    </div>
+    <script src="{{ asset('assets/js/home.js') }}" ></script>
     {% include 'footer/footer.html.twig' %}
 {% endblock %}
