@@ -20,13 +20,13 @@ class Favorite
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="favorites")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="favorites")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity=movie::class, inversedBy="favorites")
+     * @ORM\ManyToOne(targetEntity=Movie::class, inversedBy="favorites")
      * @ORM\JoinColumn(nullable=false)
      */
     private $movie;
