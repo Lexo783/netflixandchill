@@ -118,7 +118,7 @@ console.log("la")
     test.forEach(item => {
         let id = item.getAttribute("id")
         new Carousel(document.querySelector('#' + id),{
-            slidesVisible:3,
+            slidesVisible:5,
             slidesToScroll:1,
             loop: false
         })
