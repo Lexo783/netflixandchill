@@ -18,10 +18,11 @@
     {{ form_start(registrationForm) }}
 
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.plainPassword) }}
+        <div class="areaAgree">
+            {{ form_row(registrationForm.agreeTerms) }}
+            <p class="agree">Agree Terms</p>
+        </div>
 
         <button type="submit" class="btn_register">Register</button>
     </div>

@@ -32,3 +32,18 @@
 .titreLogo{
     margin-left: 20px;
 }
+.textbox{
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+}
+.areaAgree{
+    display: flex;
+}
+.agree{
+    padding-left: 5px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
