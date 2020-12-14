@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Favorite;
 use App\Entity\User;
 use App\Repository\FavoriteRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,6 +35,11 @@ class FavoriteController extends AbstractController
 
         $user = $this->getUser();
 
+    #[Route('/favorite/{filmId}', name: 'toggle_favorite')]
+    public function toggleFavorite($filmId, FavoriteRepository $favoriteRepository, UserRepository $userRepository): bool
+    {
+        $user = $this->getUser();
+        $getUser = $userRepository->find($user);
         $favoriteList = $user->getFavorites();
 
         $favorite = $favoriteRepository->findOneBy(
@@ -46,6 +52,7 @@ class FavoriteController extends AbstractController
         if(!in_array($filmId, $favoriteList)) {
             $newFavorite = new Favorite();
             $newFavorite->setUser($user);
+            $newFavorite->setUser($getUser);
             $newFavorite->setMovie($filmId);
 
             $this->em->persist($newFavorite);
@@ -59,4 +66,5 @@ class FavoriteController extends AbstractController
             return false;
         }
     }*/
+
 }

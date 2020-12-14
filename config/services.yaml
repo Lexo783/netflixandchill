@@ -6,6 +6,7 @@
 parameters:
     mailJetPublicKey: "92c566233b821ab03e8b133bd128ea13"
     mailJetSecretKey: "aadb43a2e3391e40b06b1d526e99c6d4"
+    files_directory: '%kernel.project_dir%/public/assets'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -35,3 +36,7 @@ services:
         arguments:
             $mailJetPublicKey: "%mailJetPublicKey%"
             $mailJetSecretKey: "%mailJetSecretKey%"
+
+    App\Services\UploadFileService:
+        arguments:
+            $targetDirectory: '%files_directory%'
