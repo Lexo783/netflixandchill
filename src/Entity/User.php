@@ -71,9 +71,33 @@ class User implements UserInterface
      */
     private $addresses;
 
+<<<<<<< Updated upstream
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
+=======
+    /**
+     * @ORM\OneToMany(targetEntity=Profil::class, mappedBy="user")
+     */
+    private $profils;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Favorite::class, mappedBy="user")
+     */
+    private $favorites;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Rate::class, mappedBy="user")
+     */
+    private $rates;
+
+    public function __construct()
+    {
+        $this->addresses = new ArrayCollection();
+        $this->profils = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
+        $this->rates = new ArrayCollection();
+>>>>>>> Stashed changes
     }
 
     public function getId(): ?int
@@ -243,4 +267,97 @@ class User implements UserInterface
 
         return $this;
     }
+<<<<<<< Updated upstream
+=======
+
+    /**
+     * @return Collection|Profil[]
+     */
+    public function getProfils(): Collection
+    {
+        return $this->profils;
+    }
+
+    public function addProfil(Profil $profil): self
+    {
+        if (!$this->profils->contains($profil)) {
+            $this->profils[] = $profil;
+            $profil->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProfil(Profil $profil): self
+    {
+        if ($this->profils->removeElement($profil)) {
+            // set the owning side to null (unless already changed)
+            if ($profil->getUser() === $this) {
+                $profil->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favorite[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Favorite $favorite): self
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites[] = $favorite;
+            $favorite->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Favorite $favorite): self
+    {
+        if ($this->favorites->removeElement($favorite)) {
+            // set the owning side to null (unless already changed)
+            if ($favorite->getUser() === $this) {
+                $favorite->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rate[]
+     */
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
+    public function addRate(Rate $rate): self
+    {
+        if (!$this->rates->contains($rate)) {
+            $this->rates[] = $rate;
+            $rate->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRate(Rate $rate): self
+    {
+        if ($this->rates->removeElement($rate)) {
+            // set the owning side to null (unless already changed)
+            if ($rate->getUser() === $this) {
+                $rate->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+>>>>>>> Stashed changes
 }

@@ -61,9 +61,27 @@ class Movie
      */
     private $movie;
 
+<<<<<<< Updated upstream
     public function __construct()
     {
         $this->genres = new ArrayCollection();
+=======
+    /**
+     * @ORM\OneToMany(targetEntity=Favorite::class, mappedBy="movie")
+     */
+    private $favorites;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Rate::class, mappedBy="movie")
+     */
+    private $rates;
+
+    public function __construct()
+    {
+        $this->genres = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
+        $this->rates = new ArrayCollection();
+>>>>>>> Stashed changes
     }
 
     public function getId(): ?int
@@ -175,6 +193,36 @@ class Movie
     public function setMovie(string $movie): self
     {
         $this->movie = $movie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rate[]
+     */
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
+    public function addRate(Rate $rate): self
+    {
+        if (!$this->rates->contains($rate)) {
+            $this->rates[] = $rate;
+            $rate->setMovie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRate(Rate $rate): self
+    {
+        if ($this->rates->removeElement($rate)) {
+            // set the owning side to null (unless already changed)
+            if ($rate->getMovie() === $this) {
+                $rate->setMovie(null);
+            }
+        }
 
         return $this;
     }
