@@ -19,7 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="" />
+    <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/css/accountPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ChangeMailType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ChangeMailType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ChangePseudoType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ChangePseudoType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/account.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/account.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header/header.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,21 +190,21 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\assets" />
-      <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\image" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\assets\css" />
       <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\assets" />
       <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\templates" />
       <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\assets" />
+      <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\image" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ddae0720-1327-4995-b7a5-c8eb3f9fb5bf" name="Default Changelist" comment="" />
+      <changelist id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="" />
       <created>1607338166158</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -220,6 +230,7 @@
       <workItem from="1607895274556" duration="1498000" />
       <workItem from="1607934832902" duration="3199000" />
       <workItem from="1607954038962" duration="354000" />
+      <workItem from="1607955375818" duration="4723000" />
     </task>
     <servers />
   </component>
@@ -242,6 +253,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="403" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607956387092">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="403" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1040/-2160.-1009.1080.1880@0.0.2560.1040" timestamp="1607956387092" />
     <state x="420" y="275" key="FileChooserDialogImpl" timestamp="1607955373134">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

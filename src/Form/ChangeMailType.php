@@ -15,14 +15,18 @@ class ChangeMailType extends AbstractType
     {
         $builder
             ->add('newEmail',TextType::class, [
-                'label' => "Nouvelle Email",
+                'label' => false,
                 'mapped' => false,
                 'attr' => [
-                    'placeholder' => "Nouvelle Email"
+                    'placeholder' => "Nouvel Email",
+                    'class' => "textbox"
                 ]
             ])
             ->add('submite', SubmitType::class,[
-                'label' => "Changer mon Email"
+                'label' => "Changer mon Email",
+                'attr' => [
+                    'class' => "btn_register"
+                ]
             ])
         ;
     }

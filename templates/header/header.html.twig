@@ -30,7 +30,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -55px; top: 98px; color: black; background-color: black">
                 {% if app.user %}
-                    <a class="dropdown-item" href="#" style="color: white; background-color: black;"><strong>Compte</strong></a>
+                    <a class="dropdown-item" href="/account" style="color: white; background-color: black;"><strong>Compte</strong></a>
                     <a class="dropdown-item" href="{{ path('app_logout') }}" style="color: white; background-color: black;"><strong>Se déconnecter</strong></a>
                 {% else %}
                 <a class="dropdown-item" href="/login" style="color: white; background-color: black;"><strong>Se connecter</strong></a>

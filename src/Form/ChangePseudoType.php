@@ -15,14 +15,18 @@ class ChangePseudoType extends AbstractType
     {
         $builder
             ->add('newPseudo',TextType::class, [
-                'label' => "Nouveau Pseudo",
+                'label' => false,
                 'mapped' => false,
                 'attr' => [
-                    'placeholder' => "Votre nouveau pseudo"
+                    'placeholder' => "Votre nouveau pseudo",
+                    'class' => "textbox"
                 ]
             ])
             ->add('submite', SubmitType::class,[
-                'label' => "Changer mon pseudo"
+                'label' => "Changer mon pseudo",
+                'attr' => [
+                    'class' => "btn_register"
+                ]
             ])
         ;
     }
