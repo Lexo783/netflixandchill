@@ -3,13 +3,13 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -56,12 +56,32 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('lastName')
-            ->add('firstName')
-            ->add('birthday',DateType::class)
-            ->add('pseudo')
-            ->add('picture')
-            ->add('submite', SubmitType::class)
+            ->add('lastName',TextType::class,[
+                'label'=> false,
+                'attr' => [
+                    'class' => 'textbox'
+                ],])
+            ->add('firstName',TextType::class,[
+                'label'=> false,
+                'attr' => [
+                    'class' => 'textbox'
+                ],])
+            ->add('birthday',DateType::class,[
+                'label'=> false,
+                'attr' => [
+                    'class' => 'textbox'
+                ],])
+            ->add('pseudo',TextType::class,[
+                'label'=> false,
+                'attr' => [
+                    'class' => 'textbox'
+                ],])
+            ->add('picture',TextType::class,[
+                'label'=> false,
+                'attr' => [
+                    'class' => 'textbox'
+                ],])
+
         ;
     }
 
