@@ -71,11 +71,6 @@ class User implements UserInterface
      */
     private $addresses;
 
-<<<<<<< Updated upstream
-    public function __construct()
-    {
-        $this->addresses = new ArrayCollection();
-=======
     /**
      * @ORM\OneToMany(targetEntity=Profil::class, mappedBy="user")
      */
@@ -97,7 +92,6 @@ class User implements UserInterface
         $this->profils = new ArrayCollection();
         $this->favorites = new ArrayCollection();
         $this->rates = new ArrayCollection();
->>>>>>> Stashed changes
     }
 
     public function getId(): ?int
@@ -267,8 +261,6 @@ class User implements UserInterface
 
         return $this;
     }
-<<<<<<< Updated upstream
-=======
 
     /**
      * @return Collection|Profil[]
@@ -359,5 +351,4 @@ class User implements UserInterface
 
         return $this;
     }
->>>>>>> Stashed changes
 }

@@ -61,11 +61,6 @@ class Movie
      */
     private $movie;
 
-<<<<<<< Updated upstream
-    public function __construct()
-    {
-        $this->genres = new ArrayCollection();
-=======
     /**
      * @ORM\OneToMany(targetEntity=Favorite::class, mappedBy="movie")
      */
@@ -81,7 +76,6 @@ class Movie
         $this->genres = new ArrayCollection();
         $this->favorites = new ArrayCollection();
         $this->rates = new ArrayCollection();
->>>>>>> Stashed changes
     }
 
     public function getId(): ?int
