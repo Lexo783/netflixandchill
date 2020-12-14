@@ -4,12 +4,13 @@
 
 {% block body %}
     {% include 'header/header.html.twig' %}
+
     {% for message in app.flashes('notice') %}
         <div class="alert alert-info">{{ message }}</div>
     {% endfor %}
     <div class="background_account">
         <div class="view_account">
-            <h1>Changer d'email</h1>
+            <h1>Changer de mot de passe</h1>
             <hr>
             {{ form(form) }}
         </div>

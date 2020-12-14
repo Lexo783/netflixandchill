@@ -17,11 +17,13 @@ class ProfilType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Pseudo'
+                'label' => false,
+                'attr' => [
+                    'placeholder' => "Pseudo",
+                ]
             ])
             ->add('picture', FileType::class, [
                 'mapped' => false,
-                'label' => 'Avatar',
                 'required' => false,
                 'constraints' => [
                     new File([
@@ -36,7 +38,7 @@ class ProfilType extends AbstractType
             ])
             ->add('control', CheckboxType::class, [
                 'mapped' => false,
-                'label' => 'Contrôle parental',
+                'label' => false,
                 'required' => false
             ])
         ;
