@@ -3,10 +3,19 @@
 {% block title %}Changer de mot de passe{% endblock %}
 
 {% block body %}
+    {% include 'header/header.html.twig' %}
+
     {% for message in app.flashes('notice') %}
         <div class="alert alert-info">{{ message }}</div>
     {% endfor %}
-
-    <h1>Changer de mot de passe</h1>
-    {{ form(form) }}
+    <div class="background_account">
+        <div class="view_account">
+            <h1>Changer de mot de passe</h1>
+            <hr>
+            {{ form(form) }}
+        </div>
+    </div>
+    <div class="footer_account">
+        {% include 'footer/footer.html.twig' %}
+    </div>
 {% endblock %}

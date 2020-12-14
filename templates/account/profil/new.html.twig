@@ -3,9 +3,18 @@
 {% block title %}Nouveau profil{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouveau profil</h1>
+    {% include 'header/header.html.twig' %}
 
-    {{ include('account/profil/_form.html.twig') }}
+    <div class="background_account">
+        <div class="view_account">
+            <h1>Créer un nouveau profil</h1>
+            <hr>
+            {{ include('account/profil/_form.html.twig') }}
 
-    <a href="{{ path('profil_index') }}">Retour à la liste</a>
+            <a href="{{ path('profil_index') }}">Retour à la liste</a>
+        </div>
+    </div>
+    <div class="footer_account">
+        {% include 'footer/footer.html.twig' %}
+    </div>
 {% endblock %}
