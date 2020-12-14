@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
 
-<<<<<<< HEAD
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
@@ -29,8 +28,8 @@
 
     <div class="container">
 
-            <div id="carousel_0" >
-                {% for key, movie in movies %}
+        <div id="carousel_0" >
+            {% for key, movie in movies %}
                 <div class="item">
                     <div class="item__image">
                         <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
@@ -44,42 +43,9 @@
                         </div>
                     </div>
                 </div>
-    {% endfor %}
-            </div>
+            {% endfor %}
+        </div>
     </div>
     <script src="{{ asset('assets/js/home.js') }}" ></script>
-=======
-<<<<<<< Updated upstream
-{% block title %}Hello VideoController!{% endblock %}
-{% block stylesheets %}
-    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
-{% endblock %}
-=======
-{% block title %}Accueil{% endblock %}
-
-{% block stylesheets %}
-{% endblock %}
-
-{% block body %}
-{% endblock %}
-
-{% block javascripts %}
-    <script src="https://vjs.zencdn.net/7.10.2/video.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
-
-    <script>
-        const app = new Vue({
-            el:'#app',
-            delimiters: [
-                "${","}",
-            ],
-            data(){
-                return {
-                    message: "Hello",
-                }
-            }
-        });
-    </script>
->>>>>>> origin/LexoFullSymfony
     {% include 'footer/footer.html.twig' %}
 {% endblock %}

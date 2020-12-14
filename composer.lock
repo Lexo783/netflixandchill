@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "1e488789f0e7084c8b02acdd6945c9fb",
-=======
     "content-hash": "4dda5becdacc1a165a58e800dbc493e0",
->>>>>>> origin/LexoFullSymfony
     "packages": [
         {
             "name": "api-platform/core",
