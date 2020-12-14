@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+<<<<<<< HEAD
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
@@ -47,5 +48,38 @@
             </div>
     </div>
     <script src="{{ asset('assets/js/home.js') }}" ></script>
+=======
+<<<<<<< Updated upstream
+{% block title %}Hello VideoController!{% endblock %}
+{% block stylesheets %}
+    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+{% endblock %}
+=======
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://vjs.zencdn.net/7.10.2/video.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+
+    <script>
+        const app = new Vue({
+            el:'#app',
+            delimiters: [
+                "${","}",
+            ],
+            data(){
+                return {
+                    message: "Hello",
+                }
+            }
+        });
+    </script>
+>>>>>>> origin/LexoFullSymfony
     {% include 'footer/footer.html.twig' %}
 {% endblock %}

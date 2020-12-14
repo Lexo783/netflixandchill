@@ -16,6 +16,7 @@
     <h1 class="register_title">Register</h1>
 
     {{ form_start(registrationForm) }}
+<<<<<<< HEAD
         <p class="title_textbox">
             Email
             {{ form_row(registrationForm.email) }}
@@ -31,6 +32,13 @@
 
         <button type="submit" class="btn_register">Register</button>
     </div>
+=======
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+>>>>>>> origin/LexoFullSymfony
     {{ form_end(registrationForm) }}
     </div>
 {% endblock %}

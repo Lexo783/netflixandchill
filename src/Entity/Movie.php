@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\MovieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource()
  * @ORM\Entity(repositoryClass=MovieRepository::class)
  */
 class Movie
@@ -54,9 +56,26 @@ class Movie
      */
     private $type;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $movie;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Favorite::class, mappedBy="movie")
+     */
+    private $favorites;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Rate::class, mappedBy="movie")
+     */
+    private $rates;
+
     public function __construct()
     {
         $this->genres = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
+        $this->rates = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -156,6 +175,72 @@ class Movie
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getMovie(): ?string
+    {
+        return $this->movie;
+    }
+
+    public function setMovie(string $movie): self
+    {
+        $this->movie = $movie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Rate[]
+     */
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
+    public function addRate(Rate $rate): self
+    {
+        if (!$this->rates->contains($rate)) {
+            $this->rates[] = $rate;
+            $rate->setMovie($this);
+        }
+    }
+    /**
+     * @return Collection|Favorite[]
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Favorite $favorite): self
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites[] = $favorite;
+            $favorite->setMovie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRate(Rate $rate): self
+    {
+        if ($this->rates->removeElement($rate)) {
+            // set the owning side to null (unless already changed)
+            if ($rate->getMovie() === $this) {
+                $rate->setMovie(null);
+            }
+        }
+    }
+    public function removeFavorite(Favorite $favorite): self
+    {
+        if ($this->favorites->removeElement($favorite)) {
+            // set the owning side to null (unless already changed)
+            if ($favorite->getMovie() === $this) {
+                $favorite->setMovie(null);
+            }
+        }
 
         return $this;
     }
