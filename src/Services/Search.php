@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Entity\Genre;
-use App\Entity\Level;
 
 class Search
 {
