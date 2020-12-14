@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,6 +144,21 @@
       <path value="$PROJECT_DIR$/vendor/symfony/uid" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid" />
       <path value="$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/mailjet/mailjet-apiv3-php" />
+      <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/api-platform/core" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lKG30KeCa15Jz5p7EsamH4B1bq" />
@@ -229,11 +242,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="420" y="275" key="FileChooserDialogImpl" timestamp="1607955061398">
+    <state x="420" y="275" key="FileChooserDialogImpl" timestamp="1607955252969">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="420" y="275" key="FileChooserDialogImpl/0.0.2560.1040/-1440.-483.960.1667@0.0.2560.1040" timestamp="1607455708407" />
-    <state x="420" y="275" key="FileChooserDialogImpl/0.0.2560.1040/-2160.-1009.1080.1880@0.0.2560.1040" timestamp="1607955061398" />
+    <state x="420" y="275" key="FileChooserDialogImpl/0.0.2560.1040/-2160.-1009.1080.1880@0.0.2560.1040" timestamp="1607955252969" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607705704224">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
