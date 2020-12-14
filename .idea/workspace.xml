@@ -21,7 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3c0590e3-5e33-4643-9294-3b5bdadfd6a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/AppAuthAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthAuthenticator.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,16 +232,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="420" y="275" key="FileChooserDialogImpl" timestamp="1607455708407">
-      <screen x="0" y="0" width="2560" height="1040" />
-    </state>
-    <state x="420" y="275" key="FileChooserDialogImpl/0.0.2560.1040/-1440.-483.960.1667@0.0.2560.1040" timestamp="1607455708407" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607705704224">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1607705704224" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

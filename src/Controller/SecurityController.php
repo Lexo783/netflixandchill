@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
@@ -42,31 +44,6 @@ class SecurityController extends AbstractController
             'last_username' => $lastUsername,
             'error' => $error
         ]);
-    }
-
-    /**
-     * @Route("/loginElectron", name="app_login_electron")
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function loginElectron(Request $request): JsonResponse
-    {
-        $email = $request->query->get('email');
-
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $email]);
-
-        if (!$user) {
-            // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email could not be found.');
-        }
-
-        $password = $this->passwordEncoder->isPasswordValid($user, $request->query->get('password'));
-
-        if($password){
-            return new JsonResponse("1");
-        }
-
-        return new JsonResponse("0");
     }
 
     /**

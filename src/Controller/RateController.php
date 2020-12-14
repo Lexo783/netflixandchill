@@ -55,6 +55,7 @@ class RateController extends AbstractController
         {
             return $this->json(serialize("error"));
         }
+
         return $this->json($rate->getRate());
     }
 
