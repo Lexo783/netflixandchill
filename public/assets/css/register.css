@@ -1,14 +1,19 @@
+
+
+
+
+
 .background_register{
     background-image: url("../img/background_register.jpg");
     background-size: cover;
     background-repeat: round;
-    position: fixed;
+    position : inherit;
     width: 100%;
     height: 100%;
 }
 .form_center{
     width: 434px;
-    height: 560px;
+    height: auto;
     margin: auto;
     backdrop-filter: brightness(50%);
     padding: 60px;
@@ -22,6 +27,7 @@
     padding: 12px;
     width: 314px;
     margin: 24px 0 12px;
+
 }
 .register_title{
     color: #fff;
@@ -52,3 +58,21 @@
     font-size: 13px;
     margin-bottom: 0px;
 }
+.background_login{
+    background-image: url("../img/background_register.jpg");
+    background-size: cover;
+    background-repeat: round;
+    position : fixed;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
