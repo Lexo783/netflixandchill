@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0590e3-5e33-4643-9294-3b5bdadfd6a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +184,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="" />
+      <changelist id="ddae0720-1327-4995-b7a5-c8eb3f9fb5bf" name="Default Changelist" comment="" />
       <created>1607338166158</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -209,6 +209,7 @@
       <workItem from="1607886171166" duration="400000" />
       <workItem from="1607895274556" duration="1498000" />
       <workItem from="1607934832902" duration="3199000" />
+      <workItem from="1607954038962" duration="354000" />
     </task>
     <servers />
   </component>
