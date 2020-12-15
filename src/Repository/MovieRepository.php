@@ -28,7 +28,7 @@ class MovieRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('m')
             ->select('g','m')
-            ->join('v.genre', 'g');
+            ->join('m.genre', 'g');
 
         if(!empty($search->genre))
         {
@@ -37,7 +37,7 @@ class MovieRepository extends ServiceEntityRepository
         }
         if(!empty($search->string))
         {
-            $query = $query->andWhere('v.name LIKE :string')
+            $query = $query->andWhere('m.name LIKE :string')
                 ->setParameter('string',"%$search->string%");
         }
         return $query->getQuery()->getResult();

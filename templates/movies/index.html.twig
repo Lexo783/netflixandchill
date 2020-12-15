@@ -36,10 +36,13 @@
                 <p class="my-auto"> {{ movie.released|date('d/m/Y') }}</p>
                 <div class="my-auto">
                     {% for key, genre in movie.genres %}
-                    <small><p class="mb-0 pb-0"> {{ genre }} </p></small>
-                        {% if loop.last == false %}
-                        <small> <p class="mb-0 pb-0"> - </p></small>
-                        {% endif %}
+                    <small><p class="mb-0 pb-0">
+                            {{ genre }}
+                            {% if loop.last == false %}
+                                -
+                            {% endif %}
+                        </p></small>
+
                     {% endfor %}
                 </div>
                 <div>
