@@ -22,18 +22,9 @@ class FavoriteController extends AbstractController
         $this->em = $em;
     }
 
-    #[Route('/favorite', name: 'favorite')]
-    public function index(): Response
-    {
-        return $this->render('favorite/index.html.twig', [
-            'controller_name' => 'FavoriteController',
-        ]);
-    }
-
-    #[Route('/favorite}', name: 'toggle_favorite')]
+    #[Route('/favorite', name: 'toggle_favorite')]
     public function toggleFavorite(FavoriteRepository $favoriteRepository, UserRepository $userRepository, MovieRepository $movieRepository): JsonResponse
     {
-
         $value = $_POST['favorite'];
         $movieId = $_POST['movieId'];
 
