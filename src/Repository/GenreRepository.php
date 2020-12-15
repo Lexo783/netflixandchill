@@ -19,6 +19,13 @@ class GenreRepository extends ServiceEntityRepository
         parent::__construct($registry, Genre::class);
     }
 
+    public function issetGenreAll(){
+        $query = $this->createQueryBuilder('g')
+            ->select('g')
+            ->innerJoin("g.movies", 'm');
+        return $query->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Genre[] Returns an array of Genre objects
     //  */

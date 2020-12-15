@@ -29,7 +29,6 @@ function getRating(path)
         success: function (result)
         {
             rating = JSON.stringify(result);
-            console.log(rating)
             for (var i = 0; i < chilldrens.length; i++)
             {
                 if(chilldrens[i].id <= rating)
