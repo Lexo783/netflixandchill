@@ -16,3 +16,16 @@
 .p_mdp{
     margin-bottom: 43px;
 }
+.title_textbox_profil{
+    display: flex;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.terms{
+    display: flex;
+    margin-right: 5px;
+}
+.p_agree{
+    padding-left: 10px;
+    font-size: 15px;
+}

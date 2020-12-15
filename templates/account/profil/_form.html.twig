@@ -1,4 +1,13 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+
+    {{ form_row(form.name) }}
+<p class="title_textbox_profil">
+    Picture {{ form_row(form.picture) }}
+</p>
+<div class="terms">
+    {{ form_row(form.control) }}
+    <p class="p_agree">agree terms</p>
+</div>
+<button type="submit" class="btn_register">Register</button>
+
 {{ form_end(form) }}
