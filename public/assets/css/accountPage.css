@@ -1,0 +1,18 @@
+.background_account{
+    background-color: #fff;
+}
+.footer_account{
+    margin-bottom: 0;
+    position: fixed;
+}
+.view_account{
+    width: 80%;
+    margin: auto;
+    height: 800px;
+}
+.change{
+    float: right;
+}
+.p_mdp{
+    margin-bottom: 43px;
+}

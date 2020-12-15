@@ -112,12 +112,18 @@ class Carousel{
 
 }
 document.addEventListener('DOMContentLoaded',function (){
-
-    new Carousel(document.querySelector('#carousel1'),{
-        slidesVisible:3,
-        slidesToScroll:1,
-        loop: false
+console.log("la")
+   let test = document.querySelectorAll('[id^=carousel_]');
+    let i =0;
+    test.forEach(item => {
+        let id = item.getAttribute("id")
+        new Carousel(document.querySelector('#' + id),{
+            slidesVisible:5,
+            slidesToScroll:1,
+            loop: false
+        })
     })
+
 
 })
 

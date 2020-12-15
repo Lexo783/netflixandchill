@@ -29,8 +29,13 @@
                 <img src="/assets/img/guest-user.jpg" width="50" height="50" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -55px; top: 98px; color: black; background-color: black">
-                <a class="dropdown-item" href="#" style="color: white; background-color: black;"><strong>Compte</strong></a>
-                <a class="dropdown-item" href="#" style="color: white; background-color: black;"><strong>Se déconnecter</strong></a>
+                {% if app.user %}
+                    <a class="dropdown-item" href="/account" style="color: white; background-color: black;"><strong>Compte</strong></a>
+                    <a class="dropdown-item" href="{{ path('app_logout') }}" style="color: white; background-color: black;"><strong>Se déconnecter</strong></a>
+                {% else %}
+                <a class="dropdown-item" href="/login" style="color: white; background-color: black;"><strong>Se connecter</strong></a>
+                <a class="dropdown-item" href="/register" style="color: white; background-color: black;"><strong>S'enregistrer</strong></a>
+                {% endif %}
             </div>
         </li>
     </div>

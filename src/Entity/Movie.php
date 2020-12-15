@@ -66,10 +66,16 @@ class Movie
      */
     private $favorites;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Rate::class, mappedBy="movie")
+     */
+    private $rates;
+
     public function __construct()
     {
         $this->genres = new ArrayCollection();
         $this->favorites = new ArrayCollection();
+        $this->rates = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -173,7 +179,6 @@ class Movie
         return $this;
     }
 
-
     public function getMovie(): ?string
     {
         return $this->movie;
@@ -183,6 +188,22 @@ class Movie
     {
         $this->movie = $movie;
         return $this;
+    }
+
+    /**
+     * @return Collection|Rate[]
+     */
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
+    public function addRate(Rate $rate): self
+    {
+        if (!$this->rates->contains($rate)) {
+            $this->rates[] = $rate;
+            $rate->setMovie($this);
+        }
     }
     /**
      * @return Collection|Favorite[]
@@ -202,6 +223,15 @@ class Movie
         return $this;
     }
 
+    public function removeRate(Rate $rate): self
+    {
+        if ($this->rates->removeElement($rate)) {
+            // set the owning side to null (unless already changed)
+            if ($rate->getMovie() === $this) {
+                $rate->setMovie(null);
+            }
+        }
+    }
     public function removeFavorite(Favorite $favorite): self
     {
         if ($this->favorites->removeElement($favorite)) {

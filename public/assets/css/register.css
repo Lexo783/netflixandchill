@@ -1,0 +1,78 @@
+
+
+
+
+
+.background_register{
+    background-image: url("../img/background_register.jpg");
+    background-size: cover;
+    background-repeat: round;
+    position : inherit;
+    width: 100%;
+    height: 100%;
+}
+.form_center{
+    width: 434px;
+    height: auto;
+    margin: auto;
+    backdrop-filter: brightness(50%);
+    padding: 60px;
+}
+.btn_register{
+
+    color: white;
+    background-color: red;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 12px;
+    width: 314px;
+    margin: 24px 0 12px;
+
+}
+.register_title{
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+.titreLogo{
+    margin-left: 20px;
+}
+.textbox{
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+}
+.areaAgree{
+    display: flex;
+}
+.agree{
+    padding-left: 5px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+.title_textbox{
+    color: white;
+    font-size: 13px;
+    margin-bottom: 0px;
+}
+.background_login{
+    background-image: url("../img/background_register.jpg");
+    background-size: cover;
+    background-repeat: round;
+    position : fixed;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+

@@ -15,28 +15,34 @@ class ChangePasswordType extends AbstractType
     {
         $builder
             ->add('oldPassword',PasswordType::class,[
-                'label' => 'Mot de passe actuel',
+                'label' => false,
                 'mapped' => false,
                 'attr' => [
-                    'placehoder' => 'votre mot de passe actuelle'
+                    'placeholder' => 'votre mot de passe actuelle',
+                    'class' => 'textbox'
                 ]
             ])
             ->add('newPassword',PasswordType::class, [
-                'label' => "Nouveau mot de passe",
+                'label' => false,
                 'mapped' => false,
                 'attr' => [
-                    'placeholder' => "Nouveau mot de passe"
+                    'placeholder' => "Nouveau mot de passe",
+                    'class' => 'textbox'
                 ]
             ])
             ->add('newPasswordConfirm',PasswordType::class, [
-                'label' => "Confirmer le mot de passe",
+                'label' => false,
                 'mapped' => false,
                 'attr' => [
-                    'placeholder' => "Confirmer le nouveau mot de passe"
+                    'placeholder' => "Confirmer le nouveau mot de passe",
+                    'class' => 'textbox'
                 ]
             ])
             ->add('submite', SubmitType::class,[
-                'label' => "Changer mon mot de passe"
+                'label' => "Changer mon mot de passe",
+                'attr' => [
+                    'class' => 'btn_register'
+    ]
             ])
         ;
     }

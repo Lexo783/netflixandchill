@@ -70,8 +70,9 @@ body{
     transition: transform 0.3s;
     transform: translate3d(0, -1px, 0);
 }
-.item:hover{
-    transform: translate3d(0, -10px, 0);
+.item:hover {
+    transform: scale(1.5);
+    z-index: 2;
 }
 .item img{
     display: block;
@@ -80,6 +81,8 @@ body{
 }
 .item__body{
     padding: 25px;
+    visibility: collapse;
+    display: none;
 }
 .item__title{
     font-size: 24px;
@@ -143,4 +146,10 @@ CAROUSEL
 
 .carousel__next--hidden, .carousel__prev--hidden{
     opacity: 0;
+}
+
+.item__image:hover + .item__body{
+    visibility: visible;
+    display: block;
+
 }
