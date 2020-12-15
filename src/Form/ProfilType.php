@@ -20,11 +20,13 @@ class ProfilType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'placeholder' => "Pseudo",
+                    'class' => 'textbox'
                 ]
             ])
             ->add('picture', FileType::class, [
                 'mapped' => false,
                 'required' => false,
+                'label' => false,
                 'constraints' => [
                     new File([
                         'maxSize' => '1024k',
