@@ -66,17 +66,16 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'class' => 'textbox'
                 ],])
-            ->add('birthday',DateType::class,[
+            ->add('birthday', DateType::class, [
+                'widget' => 'single_text',
+                // this is actually the default format for single_text
+                'format' => 'yyyy-MM-dd',
                 'label'=> false,
                 'attr' => [
                     'class' => 'textbox'
-                ],])
+                ]
+            ])
             ->add('pseudo',TextType::class,[
-                'label'=> false,
-                'attr' => [
-                    'class' => 'textbox'
-                ],])
-            ->add('picture',TextType::class,[
                 'label'=> false,
                 'attr' => [
                     'class' => 'textbox'
