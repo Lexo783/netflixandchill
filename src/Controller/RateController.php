@@ -25,26 +25,35 @@ class RateController extends AbstractController
     }
 
     #[Route('/new', name: 'rate_new', methods: ['POST'])]
-    public function new(MovieRepository $movieRepository)
+    public function new(MovieRepository $movieRepository,RateRepository $rateRepository)
     {
         $value = $_POST['rate'];
         $movieId = $_POST['movieId'];
-        $movieBDD = $movieRepository->find(['id' => $movieId]);
+        $movieBDD = $movieRepository->findOneBy(['id' => $movieId]);
         if($value < 1 && $value > 5 && !$movieBDD)
         {
             return $this->json(serialize('error'));
         }
         else{
-            $rate = new Rate();
-            $rate->setUser($this->getUser());
-            $rate->setMovie($movieBDD);
-            $rate->setRate($value);
-            //$this->entityManager->persist($rate);
-            //$this->entityManager->flush();
-
-            return $this->json(serialize("success"));
+            $rate = $rateRepository->findOneBy(['movie' => $movieBDD, 'user' => $this->getUser()]);
+            if ($rate)
+            {
+                $rate->setRate($value);
+                $this->entityManager->flush();
+                return $this->json(serialize("success"));
+            }
+            else{
+                $rate = new Rate();
+                $rate->setUser($this->getUser());
+                $rate->setMovie($movieBDD);
+                $rate->setRate($value);
+                $this->entityManager->persist($rate);
+                $this->entityManager->flush();
+                return $this->json(serialize("success"));
+            }
         }
     }
+
 
     #[Route('/getRate', name: 'get_rate', methods: ['POST'])]
     public function getRate(RateRepository $rateRepository)
@@ -59,6 +68,7 @@ class RateController extends AbstractController
         return $this->json($rate->getRate());
     }
 
+    /*
     #[Route('/{id}/edit', name: 'rate_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Rate $rate): Response
     {
@@ -87,5 +97,5 @@ class RateController extends AbstractController
         }
 
         return $this->redirectToRoute('rate_index');
-    }
+    }*/
 }

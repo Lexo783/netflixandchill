@@ -39,7 +39,7 @@ class MovieCrudController extends AbstractCrudController
             ImageField::new('picture')
                 ->setBasePath('assets/img')
                 ->setUploadDir('public/assets/img')
-                ->setRequired(true),
+                ->setRequired(false),
             TextField::new('type'),
         ];
     }

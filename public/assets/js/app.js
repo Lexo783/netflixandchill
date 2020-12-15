@@ -2,14 +2,14 @@ var chilldrens = $( ".rating" ).children();
 var isChek = false
 var rating = null;
 getRating()
-function sendRating(value,path)
+function sendRating(value,movie,path)
 {
     $.ajax({
         url: path,
         method: 'POST',
         data: {
             rate: value,
-            movieId: 1,
+            movieId: movie,
         },
         success: function ()
         {
