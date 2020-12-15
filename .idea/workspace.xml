@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Form/ProfilType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfilType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/profil/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/profil/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/MovieCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/MovieCrudController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +179,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -224,6 +231,8 @@
       <workItem from="1607934832902" duration="3199000" />
       <workItem from="1607954038962" duration="354000" />
       <workItem from="1607955375818" duration="5332000" />
+      <workItem from="1607962378530" duration="1363000" />
+      <workItem from="1608020445743" duration="773000" />
     </task>
     <servers />
   </component>

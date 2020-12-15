@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
@@ -35,8 +36,10 @@ class MovieCrudController extends AbstractCrudController
                 ]),
             DateField::new('released'),
             AssociationField::new('genres'),
-            //CollectionEntityGenre::new('genres'),
-            //ImageField::new('picture'),
+            ImageField::new('picture')
+                ->setBasePath('assets/img')
+                ->setUploadDir('public/assets/img')
+                ->setRequired(true),
             TextField::new('type'),
         ];
     }
