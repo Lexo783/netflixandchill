@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié{% endblock %}
+
+{% block body %}
+        {% for message in app.flashes('notice') %}
+                <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        <form method="post">
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <label for="inputEmail">Email</label>
+                <input type="email" name="email" id="inputEmail" class="form-control" required autofocus>
+                <button type="submit" class="text-center">Envoyez le mail</button>
+        </form>
+{% endblock %}

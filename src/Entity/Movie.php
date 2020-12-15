@@ -187,7 +187,6 @@ class Movie
     public function setMovie(string $movie): self
     {
         $this->movie = $movie;
-
         return $this;
     }
 
@@ -241,7 +240,6 @@ class Movie
                 $favorite->setMovie(null);
             }
         }
-
         return $this;
     }
 }

@@ -81,7 +81,6 @@ class RegistrationFormType extends AbstractType
                 'attr' => [
                     'class' => 'textbox'
                 ],])
-
         ;
     }
 
