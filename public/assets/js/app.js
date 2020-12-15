@@ -18,13 +18,13 @@ function sendRating(value,movie,path)
     });
 }
 
-function getRating(path)
+function getRating(movie,path)
 {
     $.ajax({
         url: path,
         method: 'POST',
         data: {
-            movieId: 1,
+            movieId: movie,
         },
         success: function (result)
         {
