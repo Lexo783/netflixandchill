@@ -21,54 +21,48 @@
         >
         </video>
         <div class="row justify-content-between">
-            <div>
-                <div class="col-6 text-left">
-                    <h2 class="my-auto">
-                        <b>{{ movie.title }}</b>
-                        <div id="favoriteDiv">
+            <div class="col-6 text-left">
+                <div class="col my-auto">
+                    <h2>
+                        <b id="favoriteDiv">{{ movie.title }}
                             {% if favorite.user.id is defined and favorite.user.id == app.user.id|number_format %}
                                 <i onclick="toggleFavorite(0, '{{ path('toggle_favorite') }}', {{ movie.id }})" class="fa fa-heart" style="color: red" aria-hidden="true"></i>
                             {% else %}
                                 <i onclick="toggleFavorite(1, '{{ path('toggle_favorite') }}', {{ movie.id }})" class="fa fa-heart" aria-hidden="true"></i>
                             {% endif %}
-                        </div>
+                        </b>
                     </h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>{{ movie.plot|raw }}</p>
-                        <small>
-                            <div class="rating my-auto">
-                                <span id="1" onclick="sendRating(1,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                                <span id="2" onclick="sendRating(2,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                                <span id="3" onclick="sendRating(3,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                                <span id="4" onclick="sendRating(4,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                                <span id="5" onclick="sendRating(5,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                            </div>
-                        </small>
-                    </div>
-                    <div class="col-6 text-right">
-                        <p class="my-auto"> {{ movie.released|date('d/m/Y') }}</p>
-                        <div class="my-auto">
-                            {% for key, genre in movie.genres %}
-                                <small><p class="mb-0 pb-0">
-                                        {{ genre }}
-                                        {% if loop.last == false %}
-                                            -
-                                        {% endif %}
-                                    </p></small>
-
-                            {% endfor %}
+                    <small>
+                        <div class="rating my-auto">
+                            <span id="1" onclick="sendRating(1,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                            <span id="2" onclick="sendRating(2,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                            <span id="3" onclick="sendRating(3,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                            <span id="4" onclick="sendRating(4,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                            <span id="5" onclick="sendRating(5,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
                         </div>
-                        <div>
-                            <small><p class="mb-0 p-0">{{ movie.rated }}</p></small>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-left">
-                    <p>{{ movie.plot|raw }}</p>
+                    </small>
                 </div>
             </div>
+            <div class="col-6 text-right">
+                <p class="my-auto"> {{ movie.released|date('d/m/Y') }}</p>
+                <div class="my-auto">
+                    {% for key, genre in movie.genres %}
+                        <small><p class="mb-0 pb-0">
+                                {{ genre }}
+                                {% if loop.last == false %}
+                                    -
+                                {% endif %}
+                            </p></small>
+
+                    {% endfor %}
+                </div>
+                <div>
+                    <small><p class="mb-0 p-0">{{ movie.rated }}</p></small>
+                </div>
+            </div>
+        </div>
+        <div class="text-left">
+            {{ movie.plot|raw }}
         </div>
     </div>
 
