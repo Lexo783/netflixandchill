@@ -6,6 +6,7 @@
     <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
     <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/starNote.css') }}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 {% endblock %}
 {% block body %}
@@ -22,7 +23,16 @@
     </div>
     <div>
         <div>
-            <h2><b>{{ movie.title }}</b></h2>
+            <h2>
+                <b>{{ movie.title }}</b>
+                <div id="favoriteDiv">
+                    {% if favorite.user.id is defined and favorite.user.id == app.user.id|number_format %}
+                        <i onclick="toggleFavorite(0, '{{ path('toggle_favorite') }}', {{ movie.id }})" class="fa fa-heart" style="color: red" aria-hidden="true"></i>
+                    {% else %}
+                        <i onclick="toggleFavorite(1, '{{ path('toggle_favorite') }}', {{ movie.id }})" class="fa fa-heart" aria-hidden="true"></i>
+                    {% endif %}
+                </div>
+            </h2>
         </div>
         <div class="row">
             <div class="col-md-6">

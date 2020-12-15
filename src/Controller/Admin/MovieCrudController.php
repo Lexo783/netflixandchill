@@ -37,9 +37,9 @@ class MovieCrudController extends AbstractCrudController
             DateField::new('released'),
             AssociationField::new('genres'),
             ImageField::new('picture')
-                ->setBasePath('assets/img')
-                ->setUploadDir('public/assets/img')
-                ->setRequired(true),
+                ->setBasePath('assets/movies')
+                ->setUploadDir('public/assets/movies')
+                ->setRequired(false),
             TextField::new('type'),
         ];
     }

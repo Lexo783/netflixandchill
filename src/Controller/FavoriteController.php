@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\Favorite;
 use App\Entity\User;
 use App\Repository\FavoriteRepository;
+use App\Repository\MovieRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -28,43 +30,40 @@ class FavoriteController extends AbstractController
         ]);
     }
 
-    /*
-    #[Route('/favorite/{filmId}', name: 'toggle_favorite')]
-    public function toggleFavorite($filmId, FavoriteRepository $favoriteRepository)
+    #[Route('/favorite}', name: 'toggle_favorite')]
+    public function toggleFavorite(FavoriteRepository $favoriteRepository, UserRepository $userRepository, MovieRepository $movieRepository): JsonResponse
     {
 
-        $user = $this->getUser();
+        $value = $_POST['favorite'];
+        $movieId = $_POST['movieId'];
 
-    #[Route('/favorite/{filmId}', name: 'toggle_favorite')]
-    public function toggleFavorite($filmId, FavoriteRepository $favoriteRepository, UserRepository $userRepository): bool
-    {
         $user = $this->getUser();
         $getUser = $userRepository->find($user);
-        $favoriteList = $user->getFavorites();
+        $getMovie = $movieRepository->find($movieId);
 
-        $favorite = $favoriteRepository->findOneBy(
-            [
-                'user' => $user,
-                'movie' => $filmId
-            ]
-        );
-
-        if(!in_array($filmId, $favoriteList)) {
+        if($value != 0 && $getMovie)
+        {
             $newFavorite = new Favorite();
-            $newFavorite->setUser($user);
             $newFavorite->setUser($getUser);
-            $newFavorite->setMovie($filmId);
+            $newFavorite->setMovie($getMovie);
 
             $this->em->persist($newFavorite);
             $this->em->flush();
 
-            return true;
+            return new JsonResponse(true);
         }
-        else{
-            $user->removeFavorite($favorite);
 
-            return false;
-        }
-    }*/
+        $favorite = $favoriteRepository->findOneBy(
+            [
+                'user' => $user,
+                'movie' => $movieId
+            ]
+        );
+
+        $this->em->remove($favorite);
+        $this->em->flush();
+
+        return new JsonResponse(false);
+    }
 
 }

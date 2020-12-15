@@ -46,6 +46,22 @@ function getRating(path)
     });
 }
 
+function toggleFavorite(value, path, movieId)
+{
+    $.ajax({
+        url: path,
+        method: 'POST',
+        data: {
+            favorite: value,
+            movieId: movieId,
+        },
+        success: function (data)
+        {
+            $( "#favoriteDiv" ).load(window.location.href + " #favoriteDiv" );
+        }
+    });
+}
+
 $(chilldrens).hover(
     function (){
         for (var i = 0; i < chilldrens.length; i++)
