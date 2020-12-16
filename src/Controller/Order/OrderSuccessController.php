@@ -30,22 +30,23 @@ class OrderSuccessController extends AbstractController
      */
     public function index($stripeSessionId, OrderRepository $orderRepository,Cart $cart,MailJetApi $mailJetApi): Response
     {
-        $order = $orderRepository->findOneBy(['stripeSessionId' => $stripeSessionId]);
+        $order = $orderRepository->findOneBy(['stripSessionId' => $stripeSessionId]);
+
         if (!$order || $order->getUser() != $this->getUser()){
             return $this->redirectToRoute('home');
         }
 
-        if(!$order->getIsPaid())
+        if(!$order->getIsPayed())
         {
             //vider le panier
             $cart->removeCart();
             //modifier le status
-            $order->setIsPaid(true);
+            $order->setIsPayed(true);
             $this->entityManager->flush();
 
             //Send email for customer
             $contentCustomer = "Bonjour ".$order->getUser()->getFirstName()."<br/> Merci de votre commande";
-            $mailJetApi->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande est validé',$contentCustomer);
+            // $mailJetApi->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande est validé',$contentCustomer);
 
             /*
             // send email for the admin

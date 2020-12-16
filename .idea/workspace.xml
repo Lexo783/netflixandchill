@@ -20,45 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/Account/AccountAddressController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/OrderCrudController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Admin/ProductCrudController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Order/OrderCancelController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Order/OrderController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/Order/OrderSuccessController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SubscriberController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Order.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/OrderDetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/AddressType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/OrderType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/OrderDetailsRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/OrderRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Cart.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/StripeApi.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/address/address.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/address/address_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/order/order.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/order/order_show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cart/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/order/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/order/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/order_cancel/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/order_success/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/subscriber/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Account/AccountOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Account/AccountOrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StripeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StripeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Address.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stripe/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stripe/payment.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stripe/verify.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Order/OrderSuccessController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Order/OrderSuccessController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +240,7 @@
       <workItem from="1607955375818" duration="5332000" />
       <workItem from="1607962378530" duration="1363000" />
       <workItem from="1608020445743" duration="4736000" />
-      <workItem from="1608105987205" duration="7137000" />
+      <workItem from="1608105987205" duration="8385000" />
     </task>
     <servers />
   </component>
