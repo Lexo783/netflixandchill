@@ -28,23 +28,28 @@
 
     <div class="container">
 
-        <div id="carousel_0" >
-            {% for key, movie in movies %}
-                <div class="item">
-                    <div class="item__image">
-                        <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
-                    </div>
-                    <div class="item__body">
-                        <div class="item__title">
-                            {{ movie.title }}
+        {% for key, genre in genres %}
+
+            <h1>{{ genre.name }}</h1>
+            <div id="carousel_{{ key }}" >
+                {% for movie in genre.movies %}
+                    <div class="item">
+                        <div class="item__image">
+                            <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
                         </div>
-                        <div class="item__description">
-                            {{ movie.plot | raw }}
+                        <div class="item__body">
+                            <div class="item__title">
+                                {{ movie.title }}
+                            </div>
+                            <div class="item__description">
+                                {% set plot = movie.plot|raw|u.truncate(8, '...') %}
+                                {{ plot }}
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
     </div>
     <script src="{{ asset('assets/js/home.js') }}" ></script>
     {% include 'footer/footer.html.twig' %}
