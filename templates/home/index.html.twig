@@ -5,22 +5,22 @@
 {% block body %}
     {% include 'header/header.html.twig' %}
     <div class="imgAccueil">
-        <img class="imgAccueil" src="assets/img/fondTeteAffiche.png">
+        <img class="imgAccueil" src="{{ asset('assets/img/fondTeteAffiche.png') }}">
     </div>
     <div class="imgTitreAccueil">
-        <img src="assets/img/titreTeteAffiche.png">
+        <img src="{{ asset('assets/img/titreTeteAffiche.png') }}">
         <p class="movieDescription">Privés de leurs pensions de retraite, trois amis de toujours décident de braquer une banque. Mais il leur faudra garder une longueur d'avance sur le FBI.</p>
     </div>
     <div class="buttonAccueil">
         <a>
             <button class="buttonPlay">
-                <img class="imgPlay" src="assets/img/play.svg">
+                <img class="imgPlay" src="{{ asset('assets/img/play.svg') }}">
                 Lecture
             </button>
         </a>
         <a>
             <button class="buttonInfo">
-                <img class="imgInfo" src="assets/img/information.png">
+                <img class="imgInfo" src="{{ asset('assets/img/information.png') }}">
                 Plus d'infos
             </button>
         </a>
@@ -28,20 +28,21 @@
 
     <div class="container">
 
-        {% for key, genre in genres %}
+        {% for key_carousel, genre in genres %}
 
             <h1>{{ genre.name }}</h1>
-            <div id="carousel_{{ key }}" >
-                {% for movie in genre.movies %}
+            <div id="carousel_{{ key_carousel }}" >
+                {% for key,movie in genre.movies %}
                     <div class="item">
                         <div class="item__image">
-                            <img src="https://placeimg.com/640/480/architecture" alt="Architecture">
+                            <img src="https://placeimg.com/640/480/architecture" alt="Architecture" />
+                            <div class="item__title">{{ movie.title }}</div>
                         </div>
                         <div class="item__body">
-                            <div class="item__title">
-                                {{ movie.title }}
+                            <div class="item__more__information" id="c_{{ key_carousel }}_{{ key }}">
+                                <img src="{{ asset('assets/img/arrowdown.png') }}" title="Plus d'info" style="width:40%; height:40%" />
                             </div>
-                            <div class="item__description">
+                            <div class="item__description" style="display: none;">
                                 {% set plot = movie.plot|raw|u.truncate(8, '...') %}
                                 {{ plot }}
                             </div>
@@ -52,5 +53,8 @@
         {% endfor %}
     </div>
     <script src="{{ asset('assets/js/home.js') }}" ></script>
+    <script>
+
+    </script>
     {% include 'footer/footer.html.twig' %}
 {% endblock %}
