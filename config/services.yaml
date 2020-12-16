@@ -42,3 +42,8 @@ services:
     App\Services\UploadFileService:
         arguments:
             $targetDirectory: '%files_directory%'
+
+    App\Services\StripeApi:
+        arguments:
+            $stripePublicKey: '%stripe_public_key%'
+            $stripeSecretKey: '%stripe_secret_key%'

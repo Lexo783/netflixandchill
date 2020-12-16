@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountAddressController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('account_order') }}">Retour</a>
+    <hr>
+    <p>Commande passé le : {{ order.createdAt|date('d/m/Y') }}</p>
+    <p>Référence de ma commande : {{ order.reference }}</p>
+    <hr>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Produit</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Prix Unitaire</th>
+            <th scope="col">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in order.orderDetails %}
+            <tr>
+                <td>{{ product.product }}</td>
+                <td>x {{ product.quantity }}</td>
+                <td>{{ (product.price / 100)|number_format(2,',','.') }}</td>
+                <td>{{ (product.total / 100)|number_format(2,',','.') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-right">
+        <strong>Sous-Total : {{ (order.getTotal / 100)|number_format(2,',','.') }}</strong><br/>
+        <strong>Sous-Total : </strong><br/>
+        <strong>Sous-Total : </strong>
+    </div>
+{% endblock %}

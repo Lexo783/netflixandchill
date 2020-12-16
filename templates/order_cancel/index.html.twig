@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderCancelController!{% endblock %}
+
+{% block body %}
+    <h2>Erreur de paiement</h2>
+    <p>Bonjour <strong>{{ order.user.firstName }} {{ order.user.lastName }}</strong>,<br/><br/>
+        il semblerait que votre paiment est échoué pour votre commande n°{{ order.reference }}.<br/>
+        Une confiramtion d'erreur vient de vous étres envoyée par email à l'adresse <strong>{{ order.user.email }}</strong>.
+    <hr>
+    <a class="btn btn-danger" href="{{ path('order') }}">rééssayer</a>
+    <hr>
+    </p>
+{% endblock %}
