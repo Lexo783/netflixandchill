@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountAddressController!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        {% if orders|length == 0 %}
+            <div>
+                <p>vous n'avez pas encore passé de commande</p>
+            </div>
+        {% else %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Référence</th>
+                    <th scope="col">Passé le</th>
+                    <th scope="col">Produit</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td><span class="badge badge-secondary">{{ order.reference }}</span></td>
+                        <td>{{ order.createdAt|date('d/m/Y') }}</td>
+                        <td>{{ order.orderDetails|length }}</td>
+                        <td>{{ ((order.getTotal/100)|number_format(2,',','.')) }}</td>
+                        <td class="text-right"><a href="{{ path('account_order_show', {'reference' : order.reference}) }}">voir ma commande</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

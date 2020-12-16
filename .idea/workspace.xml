@@ -20,18 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/StripeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/StripeType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/stripe/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/stripe/payment.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/stripe/verify.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Order/OrderSuccessController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Order/OrderSuccessController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +178,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Entity" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -201,15 +191,22 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\assets\css" />
-      <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\assets" />
-      <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\templates" />
-      <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill" />
+      <recent name="C:\coding_corona\netflixandchill\src\Entity" />
+      <recent name="C:\coding_corona\netflixandchill\src\Controller\Admin" />
+      <recent name="C:\coding_corona\netflixandchill\src\Form" />
+      <recent name="C:\coding_corona\netflixandchill\src\Controller\Account" />
+      <recent name="C:\coding_corona\netflixandchill\templates\account\order" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\coding_corona\netflixandchill\src\Controller\Order" />
       <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\assets" />
       <recent name="C:\Users\fredo\Documents\GitHub\netflixandchill\public\image" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value=" =&gt;" />
+    </option>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -243,6 +240,7 @@
       <workItem from="1607955375818" duration="5332000" />
       <workItem from="1607962378530" duration="1363000" />
       <workItem from="1608020445743" duration="4736000" />
+      <workItem from="1608105987205" duration="8385000" />
     </task>
     <servers />
   </component>

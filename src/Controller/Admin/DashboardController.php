@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Genre;
 use App\Entity\Movie;
+use App\Entity\Order;
+use App\Entity\Product;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -33,5 +35,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('User', 'fas fa-users', User::class);
         yield MenuItem::linkToCrud('Genre', 'fas fa-list', Genre::class);
         yield MenuItem::linkToCrud('Movie', 'fas fa-film', Movie::class);
+        yield MenuItem::linkToCrud('Order', 'fa fa-shopping-cart', Order::class);
+        yield MenuItem::linkToCrud('Product', 'icon class', Product::class);
     }
 }
