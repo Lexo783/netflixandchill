@@ -42,7 +42,8 @@
                                 {{ movie.title }}
                             </div>
                             <div class="item__description">
-                                {{ movie.plot | raw }}
+                                {% set plot = movie.plot|raw|u.truncate(8, '...') %}
+                                {{ plot }}
                             </div>
                         </div>
                     </div>
