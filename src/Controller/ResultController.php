@@ -15,7 +15,6 @@ class ResultController extends AbstractController
     #[Route('/result', name: 'result')]
     public function index(Request $request,MovieRepository $movieRepository): Response
     {
-
         return $this->render('result/result.html.twig');
     }
 }

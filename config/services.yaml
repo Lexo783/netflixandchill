@@ -7,6 +7,8 @@ parameters:
     mailJetPublicKey: "92c566233b821ab03e8b133bd128ea13"
     mailJetSecretKey: "aadb43a2e3391e40b06b1d526e99c6d4"
     files_directory: '%kernel.project_dir%/public/assets'
+    stripe_public_key: 'pk_test_51Hyfe1EzXUSbFk0TTfcX9hQfFEy26xCRA1mn7fMmcmTSC5pGOtum3lrXDJxYRWgCqkFLmWHd8xYSTvLFt2LKwL2V00JfIFzgw9'
+    stripe_secret_key: 'sk_test_51Hyfe1EzXUSbFk0TlmVH1BIXAVZVj7DdRidtoahlfgTeLFwRVyKciy52f3OSQFMQP73zd970yPWpMIeVE5rXlPs0003pCNkA38'
 services:
     # default configuration for services in *this* file
     _defaults:
