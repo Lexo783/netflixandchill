@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Stripe\Checkout\Session;
 use Stripe\Stripe;
 
 class StripeApi
@@ -18,20 +19,53 @@ class StripeApi
         \Stripe\Stripe::setApiKey($this->stripeSecretKey);
     }
 
-    public function intent($user,$lineItem)
+    /**
+     * @param $price
+     * @return Session
+     * @throws \Stripe\Exception\ApiErrorException
+     */
+    public function checkOut($price)
     {
-        $domaine = 'http://127.0.0.1:8000/';
-        return $this->stripeClient->checkout->sessions->create(
-            [
-                'customer_email' => $user,
-                'payment_method_types' => ['card'],
-                'line_items' => [
-                    $lineItem,
-                ],
-                'mode' => 'payment',
-                'success_url' => $domaine.'order/success/{CHECKOUT_SESSION_ID}',
-                'cancel_url' =>  $domaine.'order/cancel/{CHECKOUT_SESSION_ID}',
-            ]
+        return Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [[
+                'price' => '20',
+                'quantity' => '1'
+            ]],
+            'mode' => 'subscription',
+            'billing_address_collection' => 'required',
+            'success_url' => 'http://127.0.0.1:8000/wonboarding/public/payment/successpayment/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => 'http://127.0.0.1:8000/wonboarding/public/payment/cancelpayment',
+        ]);
+    }
+
+    /**
+     * @param $email
+     * @param $firstName
+     * @param $lastName
+     * @param $phone
+     * @return \Stripe\Customer
+     * @throws \Stripe\Exception\ApiErrorException
+     */
+    public function createCustomer($email, $firstName, $lastName, $phone)
+    {
+        return $this->stripeClient->customers->create([
+            'email' => $email,
+            'name' => $firstName . ' ' . $lastName,
+            'phone' => $phone
+        ]);
+    }
+
+    /**
+     * @param $customer
+     * @return \Stripe\Customer
+     * @throws \Stripe\Exception\ApiErrorException
+     */
+    public function retrieveCustomer($customer)
+    {
+        return $this->stripeClient->customers->retrieve(
+            $customer,
+            []
         );
     }
 
