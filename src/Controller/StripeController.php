@@ -30,17 +30,11 @@ class StripeController extends AbstractController
         $productStripe = [];
         foreach ($order->getOrderDetails()->getValues() as $product){
             $productStripe[] = [
-                'price_data' => [
-                    'currency' => 'eur',
-                    'unit_amount' => $product->getPrice(),
-                    'product_data' => [
-                        'name' => $product->getProduct(),
-                    ],
-                ],
-                'quantity' => $product->getQuantity(),
+                'price' => $product->getPrice(),
+                'quantity' => '1',
             ];
         }
-        $checkoutStripe = $stripeApi->intent($this->getUser()->getEmail(),$productStripe);
+        $checkoutStripe = $stripeApi->checkOut(20);
         $order->setStripSessionId($checkoutStripe->id);
         $entityManager->flush();
 

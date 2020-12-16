@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Services/ApiStripe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Order/OrderSuccessController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Order/OrderSuccessController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StripeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StripeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/StripeApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/StripeApi.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +180,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Entity" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Services" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -191,11 +193,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\coding_corona\netflixandchill\src\Services" />
       <recent name="C:\coding_corona\netflixandchill\src\Entity" />
       <recent name="C:\coding_corona\netflixandchill\src\Controller\Admin" />
       <recent name="C:\coding_corona\netflixandchill\src\Form" />
       <recent name="C:\coding_corona\netflixandchill\src\Controller\Account" />
-      <recent name="C:\coding_corona\netflixandchill\templates\account\order" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\coding_corona\netflixandchill\src\Controller\Order" />
@@ -240,7 +242,7 @@
       <workItem from="1607955375818" duration="5332000" />
       <workItem from="1607962378530" duration="1363000" />
       <workItem from="1608020445743" duration="4736000" />
-      <workItem from="1608105987205" duration="8385000" />
+      <workItem from="1608105987205" duration="11867000" />
     </task>
     <servers />
   </component>
