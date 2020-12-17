@@ -10,6 +10,7 @@
 
 {% endblock %}
 {% block body %}
+    {% include 'header/header.html.twig' %}
     <div id="instructions">
         <video
                 id="vid1"
@@ -21,28 +22,30 @@
         >
         </video>
         <div class="row justify-content-between">
-            <div class="col-6 text-left">
-                <div class="col my-auto">
-                    <h2>
-                        <b id="favoriteDiv">{{ movie.title }}
-                            {% if favorite.user.id is defined and favorite.user.id == app.user.id|number_format %}
-                                <i onclick="toggleFavorite(0, '{{ path('toggle_favorite') }}', {{ movie.id }})" class="fa fa-heart" style="color: red" aria-hidden="true"></i>
-                            {% else %}
-                                <i onclick="toggleFavorite(1, '{{ path('toggle_favorite') }}', {{ movie.id }})" class="fa fa-heart" aria-hidden="true"></i>
-                            {% endif %}
-                        </b>
-                    </h2>
-                    <small>
-                        <div class="rating my-auto">
-                            <span id="1" onclick="sendRating(1,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                            <span id="2" onclick="sendRating(2,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                            <span id="3" onclick="sendRating(3,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                            <span id="4" onclick="sendRating(4,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                            <span id="5" onclick="sendRating(5,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
-                        </div>
-                    </small>
+            {% if app.user %}
+                <div class="col-6 text-left">
+                    <div class="col my-auto">
+                        <h2>
+                            <b id="favoriteDiv">{{ movie.title }}
+                                {% if favorite.user.id is defined and favorite.user.id == app.user.id|number_format %}
+                                    <i onclick="toggleFavorite(0, '{{ path('toggle_favorite') }}', {{ movie.id }})" class="fa fa-heart" style="color: red" aria-hidden="true"></i>
+                                {% else %}
+                                    <i onclick="toggleFavorite(1, '{{ path('toggle_favorite') }}', {{ movie.id }})" class="fa fa-heart" aria-hidden="true"></i>
+                                {% endif %}
+                            </b>
+                        </h2>
+                        <small>
+                            <div class="rating my-auto">
+                                <span id="1" onclick="sendRating(1,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                                <span id="2" onclick="sendRating(2,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                                <span id="3" onclick="sendRating(3,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                                <span id="4" onclick="sendRating(4,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                                <span id="5" onclick="sendRating(5,{{ movie.id }},'{{ path('rate_new') }}')" class="far fa-star"></span>
+                            </div>
+                        </small>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
             <div class="col-6 text-right">
                 <p class="my-auto"> {{ movie.released|date('d/m/Y') }}</p>
                 <div class="my-auto">
@@ -65,7 +68,7 @@
             {{ movie.plot|raw }}
         </div>
     </div>
-
+    {% include 'footer/footer.html.twig' %}
     <style>
         #instructions { max-width: 640px; text-align: left; margin: 30px auto; }
         #instructions textarea { width: 100%; height: 100px; }

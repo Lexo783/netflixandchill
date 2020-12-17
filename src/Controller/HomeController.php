@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\SearchType;
+use App\Repository\GenreRepository;
 use App\Repository\MovieRepository;
 use App\Services\Profile;
 use App\Services\Search;
@@ -14,21 +15,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(Request $request,MovieRepository $movieRepository, Profile $profile): Response
+    public function index(Request $request,MovieRepository $movieRepository, Profile $profile, GenreRepository $genreRepository): Response
     {
         $search = new Search();
         $form = $this->createForm(SearchType::class,$search);
         $form->handleRequest($request);
+
         if($form->isSubmitted() && $form->isValid())
         {
             $movies = $movieRepository->findWithSearch($search);
         }
         else{
             $movies = $movieRepository->findAll();
+            $genres = $genreRepository->issetGenreAll();
         }
         return $this->render('home/index.html.twig', [
             'movies' => $movies,
-            'profile' => $profile->getProfile()
+            'profile' => $profile->getProfile(),
+            'genres' => $genres
         ]);
     }
 }

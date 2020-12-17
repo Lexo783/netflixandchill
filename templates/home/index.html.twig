@@ -31,9 +31,9 @@
         {% for key_carousel, genre in genres %}
 
             <h1>{{ genre.name }}</h1>
-            <div id="carousel_{{ key_carousel }}" >
+            <div id="carousel_{{ key_carousel }}">
                 {% for key,movie in genre.movies %}
-                    <div class="item">
+                    <div class="item" onclick="window.location.href = '{{ path('movies', {'movieId':movie.id}) }}'">
                         <div class="item__image">
                             <img src="https://placeimg.com/640/480/architecture" alt="Architecture" />
                             <div class="item__title">{{ movie.title }}</div>
