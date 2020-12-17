@@ -34,7 +34,7 @@ class AccountAddressController extends AbstractController
     }
 
     /**
-     * @Route("/account/add", name="add_account_address")
+     * @Route("/account/address/add", name="add_account_address")
      */
     public function add(Request $request, Cart $cart): Response
     {
@@ -59,7 +59,7 @@ class AccountAddressController extends AbstractController
     }
 
     /**
-     * @Route("/account/{id}/edit", name="edit_account_address")
+     * @Route("/account/address/{id}/edit", name="edit_account_address")
      */
     public function edit(Request $request, $id, AddressRepository $addressRepository): Response
     {
@@ -77,13 +77,13 @@ class AccountAddressController extends AbstractController
             return $this->redirectToRoute('account_address');
         }
 
-        return $this->render('account/address_form.html.twig', [
+        return $this->render('account/address/address_form.html.twig', [
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/account/{id}/delete", name="delete_account_address")
+     * @Route("/account/address/{id}/delete", name="delete_account_address")
      */
     public function delete($id, AddressRepository $addressRepository): Response
     {
