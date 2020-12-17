@@ -15,7 +15,7 @@ class AccountOrderController extends AbstractController
     public function index(OrderRepository $orderRepository): Response
     {
         $order = $orderRepository->findSuccessOrders($this->getUser());
-        return $this->render('account/order.html.twig', [
+        return $this->render('account/order/order.html.twig', [
             'orders' => $order,
         ]);
     }
@@ -30,7 +30,7 @@ class AccountOrderController extends AbstractController
             return $this->redirectToRoute('account_order');
         }
 
-        return $this->render('account/order_show.html.twig', [
+        return $this->render('account/order/order_show.html.twig', [
             'order' => $order,
         ]);
     }
