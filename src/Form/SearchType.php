@@ -17,10 +17,11 @@ class SearchType extends AbstractType
     {
         $builder
             ->add('string',TextType::class, [
-                'label' => 'Recherche',
+                'label' => false,
                 'required' => false,
                 'attr' => [
-
+                    'placeholder' => 'recherche',
+                    'class' => 'form-control mr-sm-2'
                 ]
             ])
             ->add('genre',EntityType::class, [

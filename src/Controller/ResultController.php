@@ -12,9 +12,25 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ResultController extends AbstractController
 {
-    #[Route('/result', name: 'result')]
-    public function index(Request $request,MovieRepository $movieRepository): Response
+    #[Route('/result/{searchUrl}', name: 'result')]
+    public function index($searchUrl,Request $request,MovieRepository $movieRepository): Response
     {
-        return $this->render('result/result.html.twig');
+        $search = new Search();
+        $form = $this->createForm(SearchType::class,$search);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $movies = $movieRepository->findWithSearch($search);
+        }
+        else
+        {
+            $search->string = $searchUrl;
+            $movies = $movieRepository->findWithSearch($search);
+        }
+        return $this->render('result/result.html.twig',[
+            'movies' => $movies,
+            'form' => $form->createView(),
+        ]);
     }
 }
