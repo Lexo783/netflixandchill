@@ -6,110 +6,53 @@
     {% include 'header/header.html.twig' %}
 
     <div class="view_account">
-        <h1 class="title_result">Résultats</h1>
-        <div class="position_result">
-        <div class="item"  style="width: 135px" onclick="">
-            <div class="item__image">
-                <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
-            </div>
-            <div class="item__body">
-                <p class="title-movie">star wars 1</p>
-                <div class="item__more__information" id="">
-                    <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
-                </div>
-                <div class="item__description" style="display: none;">
-
-                </div>
-            </div>
-        </div>
-
-        <div class="item"  style="width: 135px" onclick="">
-            <div class="item__image">
-                <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
-            </div>
-            <div class="item__body">
-                <p class="title-movie">star wars 1</p>
-                <div class="item__more__information" id="">
-                    <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
-                </div>
-                <div class="item__description" style="display: none;">
-
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group bg-light p-3">
+                    {{ form_start(form) }}
+                    <div>
+                        <div><b>Recherche</b></div>
+                        {{ form_widget(form.string) }}
+                    </div>
+                    <hr>
+                    <div><b>Genres</b></div>
+                    <div class="form-check">
+                        {% for genre in form.genre %}
+                            <div class="form-check-input my-auto">
+                                {{ form_widget(genre) }}
+                            </div>
+                            <div class=" mr-1 form-check-label my-auto">
+                                {{ form_label(genre,null,{'label_attr': {'class': 'form-check-label'}}) }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <hr>
+                    {{ form_end(form) }}
                 </div>
             </div>
-        </div>
+            <div class="col">
+                <h1 class="title_result">Résultats</h1>
+                <div class="row">
+                    {% for movie in movies %}
+                        <div class="col-3">
+                            <div class="position_result">
+                                <div class="item"  style="width: 135px" onclick="">
+                                    <div class="item__image">
+                                        <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
+                                    </div>
+                                    <div class="item__body">
+                                        <p class="title-movie">star wars 1</p>
+                                        <div class="item__more__information" id="">
+                                            <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
+                                        </div>
+                                        <div class="item__description" style="display: none;">
 
-            <div class="item"  style="width: 135px" onclick="">
-                <div class="item__image">
-                    <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
-                </div>
-                <div class="item__body">
-                    <p class="title-movie">star wars 1</p>
-                    <div class="item__more__information" id="">
-                        <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
-                    </div>
-                    <div class="item__description" style="display: none;">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="item"  style="width: 135px" onclick="">
-                <div class="item__image">
-                    <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
-                </div>
-                <div class="item__body">
-                    <p class="title-movie">star wars 1</p>
-                    <div class="item__more__information" id="">
-                        <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
-                    </div>
-                    <div class="item__description" style="display: none;">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="item"  style="width: 135px" onclick="">
-                <div class="item__image">
-                    <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
-                </div>
-                <div class="item__body">
-                    <p class="title-movie">star wars 1</p>
-                    <div class="item__more__information" id="">
-                        <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
-                    </div>
-                    <div class="item__description" style="display: none;">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="item"  style="width: 135px" onclick="">
-                <div class="item__image">
-                    <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
-                </div>
-                <div class="item__body">
-                    <p class="title-movie">star wars 1</p>
-                    <div class="item__more__information" id="">
-                        <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
-                    </div>
-                    <div class="item__description" style="display: none;">
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="item"  style="width: 135px" onclick="">
-                <div class="item__image">
-                    <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
-                </div>
-                <div class="item__body">
-                    <p class="title-movie">star wars 1</p>
-                    <div class="item__more__information" id="">
-                        <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
-                    </div>
-                    <div class="item__description" style="display: none;">
-
-                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
