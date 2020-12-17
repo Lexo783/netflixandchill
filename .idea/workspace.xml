@@ -19,15 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/movies/3292122510_1_3_iWi21GsM.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/movies/Code-Geass-Fukkatsu-no-Lelouch-anime-image-753.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StripeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StripeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/ApiStripe.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/ApiStripe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/StripeApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/StripeApi.php" afterDir="false" />
-    </list>
+    <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
