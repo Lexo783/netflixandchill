@@ -152,6 +152,10 @@ CAROUSEL
 
 }
 */
+body {
+    overflow-x: hidden;
+}
+
 .imgAccueil {
     width: -webkit-fill-available;
     z-index: 2;

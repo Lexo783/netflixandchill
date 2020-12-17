@@ -50,38 +50,5 @@ class RegistrationController extends AbstractController
         ]);
     }
 
-    #[Route('/registerElectron', name: 'app_register_electron')]
-    public function registerElectron(Request $request, UserPasswordEncoderInterface $passwordEncoder): JsonResponse
-    {
-        $user = new User();
 
-        $form = $request->query->all();
-
-        if ($form) {
-            // encode the plain password
-            $user->setPassword(
-                $passwordEncoder->encodePassword(
-                    $user,
-                    $request->query->get('password')
-                )
-            );
-
-            $user->setPicture($request->query->get('picture'));
-            $user->setBirthday(new \DateTime($request->query->get('birthday')));
-            $user->setEmail($request->query->get('email'));
-            $user->setFirstName($request->query->get('firstName'));
-            $user->setLastName($request->query->get('lastName'));
-            $user->setPseudo($request->query->get('pseudo'));
-            $user->setRoles(["ROLE_USER"]);
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
-
-            return new JsonResponse("1");
-        }
-
-        return new JsonResponse("0");
-    }
 }
