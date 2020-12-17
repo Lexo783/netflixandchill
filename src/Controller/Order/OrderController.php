@@ -30,6 +30,10 @@ class OrderController extends AbstractController
         {
             return $this->redirectToRoute('add_account_address');
         }
+        if(!$cart->getFull())
+        {
+            return $this->redirectToRoute('subscriber');
+        }
 
         $form = $this->createForm(OrderType::class, null, [
             'user' => $this->getUser(),
