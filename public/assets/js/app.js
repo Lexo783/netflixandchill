@@ -97,3 +97,47 @@ $('.fa-star').click(
         }
     }
 )
+
+function searchBar(title)
+{
+    var url = "/"
+    if (title != '')
+    {
+        $('#resultAjax').empty();
+        $.ajax({
+            url: '/result',
+            method: 'POST',
+            data: {
+                title: title
+            },
+            success: function (movies)
+            {
+                $('#resultAjax').addClass('row')
+                $.each(movies,function (index,value){
+                    $('<div class="col-3">\n' +
+                        '    <div class="position_result">\n' +
+                        '        <div class="item"  style="width: 135px" onclick="">\n' +
+                        '            <div class="item__image">\n' +
+                        '                <img src="assets/movies/'+value.picture+'" style="width: 135px; height: 202.5px" />\n' +
+                        '            </div>\n' +
+                        '            <div class="item__body">\n' +
+                        '                <p class="title-movie">'+value.title+'</p>\n' +
+                        '                <div class="item__more__information" id="">\n' +
+                        '                    <img src="assets/img/flecheBas.png" title="Plus d\'info" style="width:32px; height:32px; margin: auto" />\n' +
+                        '                </div>\n' +
+                        '                <div class="item__description" style="display: none;">\n' +
+                        '\n' +
+                        '                </div>\n' +
+                        '            </div>\n' +
+                        '        </div>\n' +
+                        '    </div>\n' +
+                        '</div>').appendTo('#resultAjax');
+
+                })
+            }
+        });
+    }
+    else {
+        document.location.assign(url)
+    }
+}

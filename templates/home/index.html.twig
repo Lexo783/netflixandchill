@@ -4,104 +4,59 @@
 
 {% block body %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark back">
-        <a class="navbar-brand" href="/">
-            <img src="/assets/img/netflix.png" width="130" height="60" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    {% include'header/header.html.twig' %}
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/"><strong>Accueil</strong><span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('subscriber') }}">Abonnements <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-            {{ form_start(form) }}
-            <div class="form-inline my-2 my-lg-0" style="margin-right: 40px">
-                {{ form_row(form.string) }}
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
-                    <img src="/assets/img/loupe.png" width="25" height="25" alt="">
-                </button>
-            </div>
-            {{ form_end(form) }}
-            <li class=" dropdown" style="bottom: 14px">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-bottom: 0px; padding-top: 0px; color: red">
-                    {% if sessionProfile is defined %}
-                        <img src="{{ asset('assets/profil/pictures/') }}{{ sessionProfile.picture }}" width="50" height="50" alt="">
-                    {% else %}
-                        <img src="{{ asset('assets/profil/pictures/') }}guest-user.jpg" width="50" height="50" alt="">
-                    {% endif %}
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -55px; top: 98px; color: black; background-color: black">
-                    {% if app.user %}
-                        <a class="dropdown-item" href="/account" style="color: white; background-color: black;"><strong>Compte</strong></a>
-                        <a class="dropdown-item" href="{{ path('cart') }}" style="color: white; background-color: black;"><strong>Mon panier</strong></a>
-                        <a class="dropdown-item" href="/profile" style="color: white; background-color: black;"><strong>Changer de profil</strong></a>
-                        <a class="dropdown-item" href="{{ path('app_logout') }}" style="color: white; background-color: black;"><strong>Se déconnecter</strong></a>
-                        {% if app.user.roles[0] == 'ROLE_ADMIN' %}
-                            <a class="dropdown-item" href="{{ path('admin') }}" style="color: white; background-color: black;"><strong>Panneau d'administration</strong></a>
-                        {% endif %}
-                    {% else %}
-                        <a class="dropdown-item" href="/login" style="color: white; background-color: black;"><strong>Se connecter</strong></a>
-                        <a class="dropdown-item" href="/register" style="color: white; background-color: black;"><strong>S'enregistrer</strong></a>
-                    {% endif %}
-                </div>
-            </li>
+    <div id="resultAjax">
+        <div class="imgAccueil">
+            <img class="imgAccueil" src="{{ asset('assets/img/fondTeteAffiche.png') }}">
         </div>
-    </nav>
+        <div class="imgTitreAccueil">
+            <img src="{{ asset('assets/img/titreTeteAffiche.png') }}">
+            <p class="movieDescription">Privés de leurs pensions de retraite, trois amis de toujours décident de braquer une banque. Mais il leur faudra garder une longueur d'avance sur le FBI.</p>
+        </div>
+        <div class="buttonAccueil">
+            <a>
+                <button class="buttonPlay">
+                    <img class="imgPlay" src="{{ asset('assets/img/play.svg') }}">
+                    Lecture
+                </button>
+            </a>
+            <a>
+                <button class="buttonInfo">
+                    <img class="imgInfo" src="{{ asset('assets/img/information.png') }}">
+                    Plus d'infos
+                </button>
+            </a>
+        </div>
 
-    <div class="imgAccueil">
-        <img class="imgAccueil" src="{{ asset('assets/img/fondTeteAffiche.png') }}">
-    </div>
-    <div class="imgTitreAccueil">
-        <img src="{{ asset('assets/img/titreTeteAffiche.png') }}">
-        <p class="movieDescription">Privés de leurs pensions de retraite, trois amis de toujours décident de braquer une banque. Mais il leur faudra garder une longueur d'avance sur le FBI.</p>
-    </div>
-    <div class="buttonAccueil">
-        <a>
-            <button class="buttonPlay">
-                <img class="imgPlay" src="{{ asset('assets/img/play.svg') }}">
-                Lecture
-            </button>
-        </a>
-        <a>
-            <button class="buttonInfo">
-                <img class="imgInfo" src="{{ asset('assets/img/information.png') }}">
-                Plus d'infos
-            </button>
-        </a>
-    </div>
+        <div class="container">
 
-    <div class="container">
 
-        {% for key_carousel, genre in genres %}
+            {% for key_carousel, genre in genres %}
 
-            <h1 class="title-genre">{{ genre.name }}</h1>
-            <div id="carousel_{{ key_carousel }}">
-                {% for key,movie in genre.movies %}
-                    <div class="item" onclick="window.location.href = '{{ path('movies', {'movieId':movie.id}) }}'">
-                        <div class="item__image">
-                            <img src="{{ asset('assets/movies/') }}{{ movie.title }}.jpg" style="width: 135px; height: 202.5px" />
-                        </div>
-                        <div class="item__body">
-                            <p class="title-movie">{{ movie.title }}</p>
-                            <div class="item__more__information" id="c_{{ key_carousel }}_{{ key }}">
-                                <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
+                <h1 class="title-genre">{{ genre.name }}</h1>
+                <div id="carousel_{{ key_carousel }}">
+                    {% for key,movie in genre.movies %}
+                        <div class="item" onclick="window.location.href = '{{ path('movies', {'movieId':movie.id}) }}'">
+                            <div class="item__image">
+                                <img class="img-fluid" src="{{ asset('assets/movies/') }}{{ movie.picture }}" style="width: 135px; height: 202.5px" />
                             </div>
-                            <div class="item__description" style="display: none;">
-                                {% set plot = movie.plot|raw|u.truncate(8, '...') %}
-                                {{ plot }}
+                            <div class="item__body">
+                                <p class="title-movie">{{ movie.title }}</p>
+                                <div class="item__more__information" id="c_{{ key_carousel }}_{{ key }}">
+                                    <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
+                                </div>
+                                <div class="item__description" style="display: none;">
+                                    {% set plot = movie.plot|raw|u.truncate(8, '...') %}
+                                    {{ plot }}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+        </div>
     </div>
     <script src="{{ asset('assets/js/home.js') }}" ></script>
     <script>

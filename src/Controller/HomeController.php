@@ -32,9 +32,7 @@ class HomeController extends AbstractController
             $genres = $genreRepository->issetGenreAll();
         }
         return $this->render('home/index.html.twig', [
-            'profile' => $profile->getProfile(),
             'genres' => $genres,
-            'form' => $form->createView()
         ]);
     }
 }

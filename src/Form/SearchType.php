@@ -21,7 +21,7 @@ class SearchType extends AbstractType
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'recherche',
-                    'class' => 'form-control mr-sm-2'
+                    'class' => 'form-control mr-sm-2 search-ajax'
                 ]
             ])
             ->add('genre',EntityType::class, [

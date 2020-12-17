@@ -2,35 +2,24 @@
 
 namespace App\Controller;
 
-use App\Form\SearchType;
 use App\Repository\MovieRepository;
 use App\Services\Search;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 
 class ResultController extends AbstractController
 {
-    #[Route('/result/{searchUrl}', name: 'result')]
-    public function index($searchUrl,Request $request,MovieRepository $movieRepository): Response
+    #[Route('/result', name: 'result',methods: ['post'])]
+    public function index(MovieRepository $movieRepository,NormalizerInterface $normalizer)
     {
         $search = new Search();
-        $form = $this->createForm(SearchType::class,$search);
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid())
-        {
-            $movies = $movieRepository->findWithSearch($search);
-        }
-        else
-        {
-            $search->string = $searchUrl;
-            $movies = $movieRepository->findWithSearch($search);
-        }
-        return $this->render('result/result.html.twig',[
-            'movies' => $movies,
-            'form' => $form->createView(),
+        $search->string = $_POST['title'];
+        $movies = $movieRepository->findWithSearch($search);
+        $normalizerJson = $normalizer->normalize($movies,null,['groups' => 'result:movie']);
+        return $this->json($normalizerJson,200,[
+            "Content-Type" => "application/json"
         ]);
     }
 }

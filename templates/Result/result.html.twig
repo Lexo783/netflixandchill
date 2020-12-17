@@ -10,29 +10,27 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="form-group bg-light p-3">
-                    {{ form_start(form) }}
+
                     <div>
                         <div><b>Recherche</b></div>
-                        {{ form_widget(form.string) }}
                     </div>
                     <hr>
                     <div><b>Genres</b></div>
                     <div class="form-check">
-                        {% for genre in form.genre %}
+                        <input onkeydown="searchBar()" type="text" class="search-ajax">
+                        {# {% for genre in form.genre %}
                             <div class="form-check-input my-auto">
-                                {{ form_widget(genre) }}
                             </div>
                             <div class=" mr-1 form-check-label my-auto">
-                                {{ form_label(genre,null,{'label_attr': {'class': 'form-check-label'}}) }}
+                                {# {{ form_label(genre,null,{'label_attr': {'class': 'form-check-label'}}) }} #}
                             </div>
-                        {% endfor %}
+                        {# {% endfor %}#}
                     </div>
                     <hr>
-                    {{ form_end(form) }}
                 </div>
             </div>
             <div class="col">
-                <div class="row">
+                <div id="resultAjax" class="row">
                     {% for movie in movies %}
                         <div class="col-3">
                             <div class="position_result">
@@ -60,4 +58,7 @@
     <div class="footer_account">
         {% include 'footer/footer.html.twig' %}
     </div>
+{% endblock %}
+
+{% block javascripts %}
 {% endblock %}
