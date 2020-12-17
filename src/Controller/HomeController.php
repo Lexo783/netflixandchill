@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(Request $request,MovieRepository $movieRepository, Profile $profile, GenreRepository $genreRepository): Response
+    public function index(Request $request, Profile $profile, GenreRepository $genreRepository): Response
     {
         $search = new Search();
         $form = $this->createForm(LightSearchType::class,$search);
