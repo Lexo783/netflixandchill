@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    {% include 'header/header.html.twig' %}
+    <div class="showVignette">
+        <h1 class="who">Qui est-ce ?</h1>
+            <div class="view_profil">
+            {% for Profil in Profils %}
+                <div class="showProfil">
+                    <a href="{{ path('setprofile',{ 'id':Profil.id }) }}" style="text-decoration: none">
+                        <img src="{{ asset('assets/profil/pictures/') }}{{ Profil.picture }}" width="130" height="130" alt="">
+                    <p class="name">{{ Profil.name }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="footer_account">
+        {% include 'footer/footer.html.twig' %}
+    </div>
+{% endblock %}
