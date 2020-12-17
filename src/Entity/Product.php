@@ -42,6 +42,16 @@ class Product
      */
     private $price;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $productStripe;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $priceStripeId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +113,30 @@ class Product
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getProductStripe(): ?string
+    {
+        return $this->productStripe;
+    }
+
+    public function setProductStripe(string $productStripe): self
+    {
+        $this->productStripe = $productStripe;
+
+        return $this;
+    }
+
+    public function getPriceStripeId(): ?string
+    {
+        return $this->priceStripeId;
+    }
+
+    public function setPriceStripeId(string $priceStripeId): self
+    {
+        $this->priceStripeId = $priceStripeId;
 
         return $this;
     }

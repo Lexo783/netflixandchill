@@ -30,7 +30,7 @@ class StripeController extends AbstractController
         $productStripe = [];
         foreach ($order->getOrderDetails()->getValues() as $product){
             $productStripe[] = [
-                'price' => $product->getPrice(),
+                'price' => $product->getPriceStripeId(),
                 'quantity' => '1',
             ];
         }

@@ -17,16 +17,13 @@ class ApiStripe
      * ApiStripe constructor.
      * @param $stripePublicKey
      * @param $stripeSecretKey
-     * @param DatabaseMovement $databaseMovement
      */
-    function __construct($stripePublicKey, $stripeSecretKey, DatabaseMovement $databaseMovement)
+    function __construct($stripePublicKey, $stripeSecretKey)
     {
         $this->stripePublicKey = $stripePublicKey;
         $this->stripeSecretKey = $stripeSecretKey;
         $this->stripeClient = new StripeClient($this->stripeSecretKey);
         \Stripe\Stripe::setApiKey($this->stripeSecretKey);
-
-        $this->databaseMovement = $databaseMovement;
     }
 
     /// Section Customer

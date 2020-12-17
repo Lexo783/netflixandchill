@@ -24,14 +24,13 @@ class StripeApi
      * @return Session
      * @throws \Stripe\Exception\ApiErrorException
      */
-    public function checkOut($price)
+    public function checkOut($line_items)
     {
         return Session::create([
             'payment_method_types' => ['card'],
-            'line_items' => [[
-                'price' => '20',
-                'quantity' => '1'
-            ]],
+            'line_items' => [
+                $line_items,
+            ],
             'mode' => 'subscription',
             'billing_address_collection' => 'required',
             'success_url' => 'http://127.0.0.1:8000/wonboarding/public/payment/successpayment/{CHECKOUT_SESSION_ID}',
@@ -67,6 +66,26 @@ class StripeApi
             $customer,
             []
         );
+    }
+
+    // Section Product
+
+    public function createProduct($name)
+    {
+        return $this->stripeClient->products->create([
+            'name' => $name,
+        ]);
+    }
+
+    public function createPrice($productId, $price){
+        return $this->stripeClient->prices->create([
+            'product' => $productId,
+            'unit_amount' => $price,
+            'currency' => 'eur',
+            'recurring' => [
+                'interval' => 'month',
+            ],
+        ]);
     }
 
 
