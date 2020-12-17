@@ -44,6 +44,25 @@ class Cart
         return $cartComplete;
     }
 
+    public function getStripeInfoOnProduct()
+    {
+        $productStripe = [];
+        foreach ($this->getCart() as $key => $quantity)
+        {
+            $product = $this->productRepository->findOneBy(['id' => $key]);
+            if (!$product)
+            {
+                $this->deleteProduct($key);
+                continue;
+            }
+            $cartComplete[] = [
+                'productStripe' => $product->getProductStripe(),
+                'priceStripe' => $product->getPriceStripeId(),
+            ];
+        }
+        return $productStripe;
+    }
+
     public function addProduct($id)
     {
         $cart = $this->session->get('cart', []);
