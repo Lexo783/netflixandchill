@@ -1,4 +1,6 @@
-{% set sessionProfile  = app.session.get('profile').profile %}
+{% if app.session.get('profile') %}
+    {% set sessionProfile  = app.session.get('profile').profile %}
+{% endif %}
 <nav class="navbar navbar-expand-lg navbar-dark back">
     <a class="navbar-brand" href="/">
         <img src="/assets/img/netflix.png" width="130" height="60" alt="">
@@ -27,7 +29,11 @@
         </form>
         <li class=" dropdown" style="bottom: 14px">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-bottom: 0px; padding-top: 0px; color: red">
-                <img src="{{ asset('assets/profil/pictures/') }}{{ sessionProfile.picture }}" width="50" height="50" alt="">
+                {% if sessionProfile is defined %}
+                    <img src="{{ asset('assets/profil/pictures/') }}{{ sessionProfile.picture }}" width="50" height="50" alt="">
+                {% else %}
+                    <img src="{{ asset('assets/profil/pictures/') }}guest-user.jpg" width="50" height="50" alt="">
+                {% endif %}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -55px; top: 98px; color: black; background-color: black">
                 {% if app.user %}
