@@ -29,14 +29,8 @@ class StripeController extends AbstractController
             $response = new JsonResponse(['error' => 'order']);
             return $response;
         }
-        $product = $cart->getStripeInfoOnProduct();
-        $productStripe = [];
-            $productStripe[] = [
-                'price' => $product['priceStripe'],
-                'quantity' => '1',
-            ];
-
-        $checkoutStripe = $stripeApi->checkOut(20);
+        $productStripe = $cart->getStripeInfoOnProduct();
+        $checkoutStripe = $stripeApi->checkOut($productStripe[0]['priceStripe']);
         $order->setStripSessionId($checkoutStripe->id);
         $entityManager->flush();
 

@@ -50,12 +50,13 @@ class Cart
         foreach ($this->getCart() as $key => $quantity)
         {
             $product = $this->productRepository->findOneBy(['id' => $key]);
+
             if (!$product)
             {
                 $this->deleteProduct($key);
                 continue;
             }
-            $cartComplete[] = [
+            $productStripe[] = [
                 'productStripe' => $product->getProductStripe(),
                 'priceStripe' => $product->getPriceStripeId(),
             ];

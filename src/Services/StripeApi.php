@@ -24,17 +24,18 @@ class StripeApi
      * @return Session
      * @throws \Stripe\Exception\ApiErrorException
      */
-    public function checkOut($line_items)
+    public function checkOut($priceStripe)
     {
         return Session::create([
             'payment_method_types' => ['card'],
-            'line_items' => [
-                $line_items,
-            ],
+            'line_items' => [[
+                'price' => $priceStripe,
+                'quantity' => 1
+            ]],
             'mode' => 'subscription',
             'billing_address_collection' => 'required',
-            'success_url' => 'http://127.0.0.1:8000/wonboarding/public/payment/successpayment/{CHECKOUT_SESSION_ID}',
-            'cancel_url' => 'http://127.0.0.1:8000/wonboarding/public/payment/cancelpayment',
+            'success_url' => 'http://127.0.0.1:8000/netflixandchill/public/payment/successpayment/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => 'http://127.0.0.1:8000/netflixandchill/public/payment/cancelpayment',
         ]);
     }
 
