@@ -29,10 +29,12 @@ class ProfilType extends AbstractType
                 'label' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024k',
+                        'maxSize' => '10024k',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
+                            'image/jpg',
+                            'image/jfif',
                         ],
                         'mimeTypesMessage' => 'Merci de renseigner uniquement une image de type jpeg ou png de maximum 1mo',
                     ])

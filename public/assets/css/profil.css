@@ -1,0 +1,23 @@
+.showProfil{
+    margin-right: 30px;
+    text-align: center;
+}
+.view_profil{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.who{
+    text-align: center;
+    font-size: 3.5vw;
+    color: #fff;
+    margin-bottom: 25px;
+}
+.showVignette{
+    margin-top: 170px;
+}
+.name{
+    color: white;
+    font-size: 20px;
+}

@@ -46,6 +46,8 @@ class AccountProfilController extends AbstractController
             if ($avatar) {
                 $avatarFileName = $uploadFileService->upload($avatar, "profil");
                 $profil->setPicture($avatarFileName);
+            }else{
+                $profil->setPicture('guest-user.jpg');
             }
 
             $profil->setControl($control != false ? 1 : 0);
