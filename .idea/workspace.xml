@@ -20,21 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9402a3d-5b9b-462f-80c7-288f799e1a02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/profil.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/profil/pictures/guest-user.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Profile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/account/profil/chooseProfil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Account/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Account/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Account/Profil/AccountProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Account/Profil/AccountProfilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ProfilType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProfilType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AppAuthAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AppAuthAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/profil/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/profil/_delete_form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/profil/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/profil/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/profil/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/profil/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/header/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header/header.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -246,6 +232,7 @@
       <workItem from="1607962378530" duration="1363000" />
       <workItem from="1608020445743" duration="4736000" />
       <workItem from="1608121594876" duration="22201000" />
+      <workItem from="1608195806045" duration="3072000" />
     </task>
     <servers />
   </component>
@@ -268,10 +255,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="371" y="243" key="NewPhpClassDialog" timestamp="1608124434536">
+    <state x="371" y="243" key="NewPhpClassDialog" timestamp="1608197476394">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="371" y="243" key="NewPhpClassDialog/0.0.2560.1040/-2160.-1009.1080.1880@0.0.2560.1040" timestamp="1608124434536" />
+    <state x="371" y="243" key="NewPhpClassDialog/0.0.2560.1040/-2160.-1009.1080.1880@0.0.2560.1040" timestamp="1608197476394" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
