@@ -72,7 +72,7 @@ class AddressType extends AbstractType
                 ]
             ])
             ->add('submite', SubmitType::class,[
-                'label' => "ajouter mon address"
+                'label' => "Ajouter mon addresse"
             ])
         ;
     }

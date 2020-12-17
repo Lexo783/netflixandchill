@@ -4,16 +4,23 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+        .example-wrapper { display:flex; flex-direction:row;margin: 1em auto; max-width: 1200px; width: 95%; font: 18px/1.5 sans-serif;background-color: white; padding: 5px; border-radius: 5px }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+        .suscribe{display: flex; flex-direction: column; width: 33%; text-align: center; padding: 50px 25px 0 25px; border: red 3px solid; margin: 5px}
+        .suscribe a{
+            background-color: red;
+            color: white;
+        }
 </style>
 {% include 'header/header.html.twig' %}
 <div class="example-wrapper">
     {% for product in products %}
-        <p>{{ product.name }}</p>
-        <p>{{ product.description }}</p>
-        <p>{{ product.price }}</p>
-        <a href="{{ path('addCart',{'id':product.id}) }}">Acheter</a>
+            <div class="suscribe">
+                <p>{{ product.name }}</p>
+                <p>{{ product.description | raw }}</p>
+                <p>{{ product.price/100 }}€</p>
+                <a href="{{ path('addCart',{'id':product.id}) }}">Acheter</a>
+            </div>
     {% endfor %}
 </div>
 {% include 'footer/footer.html.twig' %}
