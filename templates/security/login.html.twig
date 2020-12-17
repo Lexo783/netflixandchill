@@ -3,45 +3,48 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+    {% include 'header/header.html.twig' %}
     <div class="background_login">
         <form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
 
-        <div class="titreLogo">
-            <a class="navbar-brand" href="/">
-                <img src="assets/img/netflix_logo.png" width="167px" height="90">
-            </a>
-        </div>
-        <div class="form_center">
-    <h1 class="register_title">Please sign in</h1>
-    <p class="title_textbox">
-        Email
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control textbox" required autofocus>
-    </p>
+            <div class="titreLogo">
+                <a class="navbar-brand" href="/">
+                    <img src="assets/img/netflix_logo.png" width="167px" height="90">
+                </a>
+            </div>
+            <div class="form_center">
+                <h1 class="register_title">Please sign in</h1>
+                <p class="title_textbox">
+                    Email
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control textbox" required autofocus>
+                </p>
 
-    <p class="title_textbox">
-        Password
-        <input type="password" name="password" id="inputPassword" class="form-control textbox" required>
-    </p>
+                <p class="title_textbox">
+                    Password
+                    <input type="password" name="password" id="inputPassword" class="form-control textbox" required>
+                </p>
 
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+                {#
+                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                See https://symfony.com/doc/current/security/remember_me.html
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-    <button class="btn_register" type="submit">
-        Sign in
-    </button>
-        </div>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" name="_remember_me"> Remember me
+                    </label>
+                </div>
+                #}
+                <button class="btn_register" type="submit">
+                    Sign in
+                </button>
+                <p style="text-align: center"><a href="{{ path('reset_password') }}">J'ai oubliez mon mot de passe</a></p>
+            </div>
         </form>
     </div>
+    {% include 'footer/footer.html.twig' %}
 {% endblock %}

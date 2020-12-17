@@ -3,6 +3,7 @@
 {% block title %}Mot de passe oublié{% endblock %}
 
 {% block body %}
+        {% include 'header/header.html.twig' %}
         {% for message in app.flashes('notice') %}
                 <div class="alert alert-info">{{ message }}</div>
         {% endfor %}
@@ -12,4 +13,5 @@
                 <input type="email" name="email" id="inputEmail" class="form-control" required autofocus>
                 <button type="submit" class="text-center">Envoyez le mail</button>
         </form>
+        {% include 'footer/footer.html.twig' %}
 {% endblock %}
