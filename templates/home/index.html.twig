@@ -30,17 +30,17 @@
 
         {% for key_carousel, genre in genres %}
 
-            <h1>{{ genre.name }}</h1>
+            <h1 class="title-genre">{{ genre.name }}</h1>
             <div id="carousel_{{ key_carousel }}">
                 {% for key,movie in genre.movies %}
                     <div class="item" onclick="window.location.href = '{{ path('movies', {'movieId':movie.id}) }}'">
                         <div class="item__image">
-                            <img src="https://placeimg.com/640/480/architecture" alt="Architecture" />
-                            <div class="item__title">{{ movie.title }}</div>
+                            <img src="{{ asset('assets/movies/') }}{{ movie.title }}.jpg" style="width: 135px; height: 202.5px" />
                         </div>
                         <div class="item__body">
+                            <p class="title-movie">{{ movie.title }}</p>
                             <div class="item__more__information" id="c_{{ key_carousel }}_{{ key }}">
-                                <img src="{{ asset('assets/img/arrowdown.png') }}" title="Plus d'info" style="width:40%; height:40%" />
+                                <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
                             </div>
                             <div class="item__description" style="display: none;">
                                 {% set plot = movie.plot|raw|u.truncate(8, '...') %}
