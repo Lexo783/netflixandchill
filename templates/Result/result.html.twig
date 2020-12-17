@@ -38,10 +38,10 @@
                             <div class="position_result">
                                 <div class="item"  style="width: 135px" onclick="">
                                     <div class="item__image">
-                                        <img src="{{ asset('assets/movies/') }}star wars 1.jpg" style="width: 135px; height: 202.5px" />
+                                        <img src="{{ asset('assets/movies/') }}{{ movie.picture }}" style="width: 135px; height: 202.5px" />
                                     </div>
                                     <div class="item__body">
-                                        <p class="title-movie">star wars 1</p>
+                                        <p class="title-movie">{{ movie.title }}</p>
                                         <div class="item__more__information" id="">
                                             <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
                                         </div>

@@ -86,7 +86,7 @@
                 {% for key,movie in genre.movies %}
                     <div class="item" onclick="window.location.href = '{{ path('movies', {'movieId':movie.id}) }}'">
                         <div class="item__image">
-                            <img src="{{ asset('assets/movies/') }}{{ movie.title }}.jpg" style="width: 135px; height: 202.5px" />
+                            <img src="{{ asset('assets/movies/') }}{{ movie.picture }}" style="width: 135px; height: 202.5px" />
                         </div>
                         <div class="item__body">
                             <p class="title-movie">{{ movie.title }}</p>
