@@ -34,8 +34,8 @@ class StripeApi
             ]],
             'mode' => 'subscription',
             'billing_address_collection' => 'required',
-            'success_url' => 'http://127.0.0.1:8000/netflixandchill/public/payment/successpayment/{CHECKOUT_SESSION_ID}',
-            'cancel_url' => 'http://127.0.0.1:8000/netflixandchill/public/payment/cancelpayment',
+            'success_url' => 'http://127.0.0.1:8000/order/success/{CHECKOUT_SESSION_ID}',
+            'cancel_url' => 'http://127.0.0.1:8000/order/cancel/{CHECKOUT_SESSION_ID}',
         ]);
     }
 

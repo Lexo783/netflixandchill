@@ -35,10 +35,10 @@ class OrderCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id'),
-            DateField::new('createdAt', 'Passé le'),
+            DateField::new('created_at', 'Passé le'),
             TextField::new('user.getFullName','Utilisateur'),
             MoneyField::new('total')->setCurrency('EUR'),
-            BooleanField::new('isPaid','Payé'),
+            BooleanField::new('isPayed','Payé'),
             ArrayField::new('orderDetails','Produits achetés')->hideOnIndex(),
         ];
     }

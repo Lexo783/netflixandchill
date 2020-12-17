@@ -46,7 +46,7 @@ class OrderSuccessController extends AbstractController
 
             //Send email for customer
             $contentCustomer = "Bonjour ".$order->getUser()->getFirstName()."<br/> Merci de votre commande";
-            // $mailJetApi->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande est validé',$contentCustomer);
+            $mailJetApi->send($order->getUser()->getEmail(),$order->getUser()->getFirstName(),'Votre commande est validé',$contentCustomer);
 
             /*
             // send email for the admin
