@@ -2,11 +2,10 @@
 
     {{ form_row(form.name) }}
 <p class="title_textbox_profil">
-    Picture {{ form_row(form.picture) }}
+    Avatar : {{ form_row(form.picture) }}
 </p>
 <div class="terms">
-    {{ form_row(form.control) }}
-    <p class="p_agree">agree terms</p>
+    <span style="margin-right: 10px">Contrôle Parental</span> {{ form_row(form.control) }}
 </div>
 <button type="submit" class="btn_register">Register</button>
 

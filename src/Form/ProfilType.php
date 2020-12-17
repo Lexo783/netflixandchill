@@ -17,7 +17,7 @@ class ProfilType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => false,
+                'label' => "Pseudo",
                 'attr' => [
                     'placeholder' => "Pseudo",
                     'class' => 'textbox'
