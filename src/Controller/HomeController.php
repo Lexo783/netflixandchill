@@ -26,11 +26,9 @@ class HomeController extends AbstractController
             $movies = $movieRepository->findWithSearch($search);
         }
         else{
-            $movies = $movieRepository->findAll();
             $genres = $genreRepository->issetGenreAll();
         }
         return $this->render('home/index.html.twig', [
-            'movies' => $movies,
             'profile' => $profile->getProfile(),
             'genres' => $genres
         ]);
