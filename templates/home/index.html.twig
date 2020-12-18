@@ -34,33 +34,32 @@
 
             {% for key_carousel, genre in genres %}
 
-                <h1 class="title-genre">{{ genre.name }}</h1>
-                <div id="carousel_{{ key_carousel }}">
-                    {% for key,movie in genre.movies %}
-                        <div class="item" onclick="window.location.href = '{{ path('movies', {'movieId':movie.id}) }}'">
-                            <div class="item__image">
-                                <img class="img-fluid" src="{{ asset('assets/movies/') }}{{ movie.picture }}" style="width: 135px; height: 202.5px" />
-                            </div>
-                            <div class="item__body">
-                                <p class="title-movie">{{ movie.title }}</p>
-                                <div class="item__more__information" id="c_{{ key_carousel }}_{{ key }}">
-                                    <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
-                                </div>
-                                <div class="item__description" style="display: none;">
-                                    {% set plot = movie.plot|raw|u.truncate(8, '...') %}
-                                    {{ plot }}
-                                </div>
-                            </div>
+            <h1 class="title-genre">{{ genre.name }}</h1>
+            <div id="carousel_{{ key_carousel }}">
+                {% for key,movie in genre.movies %}
+                <div class="item" onclick="window.location.href = '{{ path('movies', {'movieId':movie.id}) }}'">
+                    <div class="item__image">
+                        <img class="img-fluid" src="{{ asset('assets/movies/') }}{{ movie.picture }}" style="width: 135px; height: 202.5px" />
+                    </div>
+                    <div class="item__body">
+                        <p class="title-movie">{{ movie.title }}</p>
+                        <div class="item__more__information" id="c_{{ key_carousel }}_{{ key }}">
+                            <img src="{{ asset('assets/img/flecheBas.png') }}" title="Plus d'info" style="width:32px; height:32px; margin: auto" />
                         </div>
+                        <div class="item__description" style="display: none;">
+                            {{ movie.plot|raw }}
+                        </div>
+                    </div>
                     {% endfor %}
                 </div>
-            {% endfor %}
+                {% endfor %}
 
+            </div>
         </div>
     </div>
-    <script src="{{ asset('assets/js/home.js') }}" ></script>
-    <script>
 
-    </script>
     {% include 'footer/footer.html.twig' %}
 {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('assets/js/home.js') }}" ></script>
+    {% endblock %}
