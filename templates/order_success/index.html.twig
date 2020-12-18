@@ -1,14 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello OrderValidateController!{% endblock %}
-
+{% block stylesheets %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;background-color: white; padding: 5px; border-radius: 5px }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+{% endblock %}
 {% block body %}
-<h2>Confirmation de commande</h2>
+<div class="example-wrapper">
+    <h2>Confirmation de commande</h2>
     <p>Bonjour <strong>{{ order.user.firstName }} {{ order.user.lastName }}</strong>,<br/><br/>
         Nous vous remercions pour votre commande n°{{ order.reference }}.<br/>
-        Une confiramtion vient de vous étres envoyée par email à l'adresse <strong>{{ order.user.email }}</strong>.
+        Une confirmation vient de vous être envoyée par email à l'adresse <strong>{{ order.user.email }}</strong>.
         <hr>
-        Nous vous envérons vos identifiant dans les jours a venir pour accéder a votre produit
+        Nous vous enverrons vos identifiants dans les jours a venir pour accéder a votre produit
         <hr>
     </p>
+</div>
 {% endblock %}

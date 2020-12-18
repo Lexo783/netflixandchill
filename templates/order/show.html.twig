@@ -1,17 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello OrderController!{% endblock %}
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;background-color: white; padding: 5px; border-radius: 5px }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+{% endblock %}
 {% block body %}
-    <h2>Je passe ma commande</h2>
-    <p>Choisissez vos préférences avant de passer votre commande</p>
+<div class="example-wrapper">
+<h2>Je valide et paye ma commande</h2>
     <div class="row">
         <div class="col-md-6">
             <p>{{ delivery|raw }}</p>
         </div>
         <div class="col-md-6">
             <div class="row">
-                <h5>récape de ma commande</h5>
+                <h5>Récape de ma commande</h5>
                 {% set total = null %}
                 {% for product in cart %}
                     <div class="col-8">
@@ -31,6 +36,7 @@
             <a id="checkout-button" class="btn btn-success btn-block">Payer | {{ (total / 100)|number_format(2,',','.') }}</a>
         </div>
     </div>
+</div>
 {% endblock %}
 {% block javascripts %}
     <script src="https://js.stripe.com/v3/"></script>

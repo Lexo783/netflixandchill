@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\MovieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,26 +17,31 @@ class Movie
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("result:movie")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("result:movie")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("result:movie")
      */
     private $plot;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("result:movie")
      */
     private $rated;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups("result:movie")
      */
     private $released;
 
@@ -46,11 +52,13 @@ class Movie
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("result:movie")
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("result:movie")
      */
     private $type;
 

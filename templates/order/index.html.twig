@@ -1,27 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello OrderController!{% endblock %}
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;background-color: white; padding: 5px; border-radius: 5px }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+{% endblock %}
 {% block body %}
+<div class="example-wrapper">
     <h2>Je passe ma commande</h2>
     <p>Choisissez vos préférences avant de passer votre commande</p>
     <div class="row">
         <div class="col-md-6">
             <div>
+                <a href="{{ path('add_account_address') }}">Ajouter une adresse</a>
                 <h5>Votre adresse</h5>
                 {% set formHtml %}
                     {{ form_start(form, {action:path('order-show')}) }}
                     {{ form_label(form.addresses,'Choisissez votre adresse de livraison') }}
-                    <a href="{{ path('add_account_address') }}">Ajouter une adresse</a>
                     {{ form_end(form) }}
                 {% endset %}
-
                 {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
             </div>
         </div>
         <div class="col-md-6">
             <div class="row">
-                <h5>récape de ma commande</h5>
+                <h5>Récape de ma commande</h5>
                 {% for product in cart %}
                     <div class="col-8">
                         {{ product.product.name }}<br/>
@@ -34,4 +39,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

@@ -10,12 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MoviesController extends AbstractController
 {
-    #[Route('/movies/show', name: 'movies')]
-    public function index(MovieRepository $movieRepository, FavoriteRepository $favoriteRepository): Response
+    #[Route('/movies/show/{movieId}', name: 'movies')]
+    public function index($movieId,MovieRepository $movieRepository, FavoriteRepository $favoriteRepository): Response
     {
-
-        $movieId = $_GET['movieId'];
-
         $movie = $movieRepository->find(['id' => $movieId]);
         $favorite = $favoriteRepository->findOneBy(['movie' => $movieId]);
 

@@ -15,14 +15,11 @@
                 <a class="nav-link" href="/"><strong>Accueil</strong><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Séries <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Films <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('subscriber') }}">Abonnements <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" style="margin-right: 40px">
-            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+            <input onkeyup="searchBar($(this).val())" class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
             <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
                 <img src="/assets/img/loupe.png" width="25" height="25" alt="">
             </button>
@@ -38,6 +35,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -55px; top: 98px; color: black; background-color: black">
                 {% if app.user %}
                     <a class="dropdown-item" href="/account" style="color: white; background-color: black;"><strong>Compte</strong></a>
+                    <a class="dropdown-item" href="{{ path('cart') }}" style="color: white; background-color: black;"><strong>Mon panier</strong></a>
                     <a class="dropdown-item" href="/profile" style="color: white; background-color: black;"><strong>Changer de profil</strong></a>
                     <a class="dropdown-item" href="{{ path('app_logout') }}" style="color: white; background-color: black;"><strong>Se déconnecter</strong></a>
                     {% if app.user.roles[0] == 'ROLE_ADMIN' %}

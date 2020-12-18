@@ -4,9 +4,10 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif;background-color: white; padding: 5px; border-radius: 5px }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
+    {% include 'header/header.html.twig' %}
 
 <div class="example-wrapper">
     <h1>Mon panier</h1>
@@ -25,7 +26,6 @@
         <tbody>
         {% set total = null %}
         {% for product in cart %}
-            {{ dump(cart) }}
         <tr>
             <th>{{ product.product.name }}<br/>
                 <small>{{ product.product.subtitle }}</small>
@@ -35,7 +35,7 @@
             <td>{{ ((product.product.price * product.quantity)/100)|number_format(2,',','.') }} euros</td>
             <td>
                 <a href="{{ path('deleteCart', {'id' : product.product.id}) }}">
-                    <img src="{{ asset('assets/img/trash-alt-regular.svg') }}">
+                    <img style="width: 15px" src="{{ asset('assets/img/trash-alt-regular.svg') }}">
                 </a>
             </td>
         </tr>
@@ -44,14 +44,15 @@
         </tbody>
     </table>
         <div>
-            <p>nombre de produit dans le panier {{ cart|length }}</p>
-            <p>total : {{ (total / 100)|number_format(2,',','.') }}</p>
+            <p>Nombre de produit(s) dans votre panier {{ cart|length }}</p>
+            <p>Total : {{ (total / 100)|number_format(2,',','.') }}</p>
             <a class="btn btn-primary" href="{{ path('order') }}">
-                payer
+                Payer
             </a>
         </div>
     {% else %}
-        <p>mon panier est vide</p>
+        <p>Mon panier est vide</p>
     {% endif %}
 </div>
+    {% include 'footer/footer.html.twig' %}
 {% endblock %}

@@ -28,16 +28,16 @@ class MovieRepository extends ServiceEntityRepository
     {
         $query = $this->createQueryBuilder('m')
             ->select('g','m')
-            ->join('m.genre', 'g');
+            ->join('m.genres', 'g');
 
         if(!empty($search->genre))
         {
-            $query = $query->andWhere('g.id IN (:genre)')
-                ->setParameter('genre',$search->genre);
+            $query = $query->andWhere('g.id IN (:genres)')
+                ->setParameter('genres',$search->genre);
         }
         if(!empty($search->string))
         {
-            $query = $query->andWhere('m.name LIKE :string')
+            $query = $query->andWhere('m.title LIKE :string')
                 ->setParameter('string',"%$search->string%");
         }
         return $query->getQuery()->getResult();

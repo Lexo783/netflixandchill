@@ -233,9 +233,7 @@ body {
     width: 100%;
     height: auto;
 }
-.item__body{
-    padding: 25px;
-}
+
 .item__title{
     font-size: 24px;
     margin-bottom: 5px;
@@ -325,6 +323,10 @@ CAROUSEL
     transform: scale(1.4);
 }
 
+.title-genre{
+    color: #fff;
+}
+
 /* TEST */
 .item__title {
     color: white;
@@ -335,4 +337,8 @@ CAROUSEL
 
 .item__body {
     background-color: #141414;
+}
+.title-movie{
+    text-align: center;
+    color: #fff;
 }
