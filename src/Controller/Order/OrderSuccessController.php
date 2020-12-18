@@ -3,6 +3,7 @@
 namespace App\Controller\Order;
 
 use App\Repository\OrderRepository;
+use App\Repository\UserRepository;
 use App\Services\Cart;
 use App\Services\MailJetApi;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,7 +29,9 @@ class OrderSuccessController extends AbstractController
      * @param MailJetApi $mailJetApi
      * @return Response
      */
-    public function index($stripeSessionId, OrderRepository $orderRepository,Cart $cart,MailJetApi $mailJetApi): Response
+    public function index($stripeSessionId, OrderRepository $orderRepository,
+                          Cart $cart,MailJetApi $mailJetApi,
+                            UserRepository $userRepository): Response
     {
         $order = $orderRepository->findOneBy(['stripSessionId' => $stripeSessionId]);
 
@@ -38,6 +41,7 @@ class OrderSuccessController extends AbstractController
 
         if(!$order->getIsPayed())
         {
+            $order->getUser()->setRoles(["ROLE_SUBS"]);
             //vider le panier
             $cart->removeCart();
             //modifier le status
