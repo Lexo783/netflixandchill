@@ -116,7 +116,7 @@ function searchBar(title)
                 $.each(movies,function (index,value){
                     $('<div class="col-3">\n' +
                         '    <div class="position_result">\n' +
-                        '        <div class="item"  style="width: 135px" onclick="">\n' +
+                        '        <div class="item"  style="width: 135px" onclick="window.location.href = \'/movies/show/'+value.id+'\'">\n' +
                         '            <div class="item__image">\n' +
                         '                <img src="assets/movies/'+value.picture+'" style="width: 135px; height: 202.5px" />\n' +
                         '            </div>\n' +
